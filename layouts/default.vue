@@ -5,7 +5,7 @@
         <div class="flex lg:flex-1">
           <NuxtLink to="/" class="-m-1.5 p-1.5">
             <span class="sr-only">Cerast Intelligence</span>
-            <NuxtImg class="h-12 w-auto" src="/images/logo.png" alt=""/>
+            <NuxtImg class="h-12 w-auto" src="/images/logo.webp" alt=""/>
           </NuxtLink>
         </div>
         <div class="flex lg:hidden">
@@ -31,7 +31,7 @@
           <div class="flex items-center justify-between">
             <NuxtLink to="/" class="-m-1.5 p-1.5">
               <span class="sr-only">Cerast Intelligence</span>
-              <NuxtImg class="h-8 w-auto" src="/images/logo.png" alt=""/>
+              <NuxtImg class="h-8 w-auto" src="/images/logo.webp" alt=""/>
             </NuxtLink>
             <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-400" @click="mobileMenuOpen = false">
               <span class="sr-only">Close menu</span>
@@ -64,8 +64,10 @@
       <div class="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div class="space-y-8">
-            <img class="h-7" src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=500" alt="Company name" />
-            <p class="text-sm leading-6 text-gray-300">Est error fuga modi error. Laborum eum nobis porro cupiditate et quo.</p>
+            <NuxtImg lazy class="h-16" src="/images/logo.webp" alt="Cerast Intelligence" />
+            <p class="text-sm leading-6 text-gray-300">
+              Cerast Intelligence is a monitoring tool that helps you to keep track of public security issues.
+            </p>
             <div class="flex space-x-6">
               <a v-for="item in footerNavigation.social" :key="item.name" :href="item.href" class="text-gray-500 hover:text-gray-400">
                 <span class="sr-only">{{ item.name }}</span>
@@ -113,7 +115,7 @@
           </div>
         </div>
         <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p class="text-xs leading-5 text-gray-400">&copy; 2020 Your Company, Inc. All rights reserved.</p>
+          <p class="text-xs leading-5 text-gray-400">&copy; 2024 Cerast Intelligence UG (haftungsbeschränkt). All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -123,6 +125,12 @@
 import {Bars3Icon, XMarkIcon} from "@heroicons/vue/24/outline/index.js";
 import {Dialog, DialogPanel} from "@headlessui/vue";
 import {defineComponent, h, ref} from "vue";
+
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+})
 
 const mobileMenuOpen = ref(false)
 
