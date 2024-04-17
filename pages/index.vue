@@ -35,8 +35,7 @@
           </a>
         </div>
         <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Find security issues with ease</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-300">You're a bug hunter searching for bounties? We help you find
-          them!</p>
+        <p class="mt-6 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We help you find them!</p>
         <div class="mt-10 flex items-center gap-x-6">
           <NuxtLink to="#subscribe"
                     class="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400">
@@ -59,9 +58,8 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:max-w-none">
         <div class="text-center">
-          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Trusted by researchers worldwide</h2>
-          <p class="mt-4 text-lg leading-8 text-gray-300">We're providing up to date data on security issues
-            worldwide</p>
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Trusted by security researchers worldwide</h2>
+          <p class="mt-4 text-lg leading-8 text-gray-300">We're providing an easy access to bug bounty and security research</p>
         </div>
         <dl class="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
           <div v-for="stat in stats" :key="stat.id" class="flex flex-col bg-white/5 p-8">
@@ -331,8 +329,7 @@ import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CheckIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 
 const frequencies = [
-  { value: 'monthly', label: 'Monthly' },
-  { value: 'annually', label: 'Annually' },
+  { value: 'monthly', label: 'Monthly' }
 ]
 const tiers = [
   {
@@ -340,7 +337,7 @@ const tiers = [
     id: 'tier-starter',
     href: '#',
     featured: false,
-    price: { monthly: '$15', annually: '$144' },
+    price: { monthly: '$15' },
     mainFeatures: [
         'Access to 3 issue categories',
         'No rate limits',
@@ -384,7 +381,7 @@ useHead({
   title: 'Home | Cerast Intelligence',
   meta: {
     name: 'description',
-    content: 'Cerast Intelligence provides up to date data on security issues worldwide. Subscribe to our service and get access to all found security issues in a websocket stream.'
+    content: 'Cerast Intelligence provides up to date data on security issues worldwide. Subscribe to our service and get access to all found security issues in a websocket stream. Get easy targets for Bug Bounty'
   }
 })
 
@@ -393,7 +390,7 @@ const faqs = [
   {
     question: "Is the service legal?",
     answer:
-        "Yes! We provide data which is already publicly available. We're just aggregating it and providing it in a more convenient way.",
+        "Yes! We provide data which is somewhat publicly available. We're just aggregating,filtering and analyzing it to provide it in a easy way for you!",
   },
   {
     question: "Can I cancel my subscription?",
@@ -403,12 +400,12 @@ const faqs = [
   {
     question: "Can I get a refund?",
     answer:
-        "We're not offering refunds at the moment. If you're not sure if the service is right for you, you can try it out for free for 2 days.",
+        "We are not offering refunds at the moment due to the nature of the product. If you're not sure if the service is right for you, you can try it out for free for 2 days.",
   },
   {
     question: "Can I use the data for commercial purposes?",
     answer:
-        "Yes, you can use the data for commercial purposes. We're not restricting the usage of the data in any way.",
+        "Yes, you can use the data for commercial purposes. The only restriction is that you can not resell the data directly.",
   },
 ]
 
@@ -420,9 +417,9 @@ const includedFeatures = [
 ]
 
 const stats = [
-  {id: 1, name: 'Findings today', value: '6,000+'},
-  {id: 2, name: 'Countries', value: 'in 89'},
-  {id: 3, name: 'Uptime', value: 'with 99.9%'},
-  {id: 4, name: 'per month', value: 'for only 50€'},
+  {id: 1, name: 'Findings last month', value: '86,400+'},
+  {id: 3, name: 'Countries', value: 'in 120+'},
+  {id: 2, name: 'Fulfillment', value: '100% Automated'},
+  {id: 4, name: 'Legal', value: '100%'},
 ]
 </script>
