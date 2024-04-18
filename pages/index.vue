@@ -240,7 +240,7 @@ const tiers = [
     href: '#',
     priceMonthly: '$49',
     description: 'For $49/month get access to our Datastream for Bug Bounty.',
-    features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
+    features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
   },
   {
     name: '3 Months',
@@ -248,7 +248,7 @@ const tiers = [
     href: '#',
     priceMonthly: '$39',
     description: 'For $119/3months get access to our Datastream for Bug Bounty.',
-    features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
+    features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
   },
   {
     name: '6 Months',
@@ -256,7 +256,7 @@ const tiers = [
     href: '#',
     priceMonthly: '$33',
     description: 'For $199/6months get access to our Datastream for Bug Bounty.',
-    features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time','Feature Requests'],
+    features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time','Feature Requests'],
   },
 ]
 
