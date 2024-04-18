@@ -48,7 +48,7 @@
         <p>We reserve the right to modify these Terms at any time. Continued use of the Service after such changes will constitute your consent to such changes.</p>
 
         <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">11. Contact Information</h2>
-        <p>Questions about the Terms of Service should be sent to us at [Insert Email Address Here].</p>
+        <p>Questions about the Terms of Service should be sent to us at contact@cerast-intelligence.com .</p>
       </div>
     </div>
   </div>
