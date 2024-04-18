@@ -5,14 +5,10 @@
       <h1 class="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Terms of Service for DataStream Subscription</h1>
       <div class="mt-10 max-w-2xl">
         <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">1. Acceptance of Terms</h2>
-        <p>
-          By subscribing to and using the DataStream service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.
-        </p>
+        <p>By subscribing to and using the DataStream service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.</p>
 
         <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">2. Service Description</h2>
-        <p>
-          The Service provides a subscription-based access to a data stream that you may use for research and analysis purposes. The Service does not guarantee uptime or the volume of data transmitted.
-        </p>
+        <p>The Service provides a subscription-based access to a data stream that you may use for research and analysis purposes. The Service does not guarantee uptime or the volume of data transmitted.</p>
 
         <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">3. Use of Data</h2>
         <ul role="list" class="mt-8 max-w-xl space-y-8">
@@ -30,14 +26,29 @@
           </li>
         </ul>
 
-        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">From beginner to expert in 3 hours</h2>
-        <p class="mt-6">Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.</p><p class="mt-10">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>
-      </div>
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">4. User Responsibilities</h2>
+        <p>You must keep your access credentials confidential and not share them with any third party. You are responsible for all activities that occur under your account and agree to immediately notify the Service provider of any unauthorized use of your account or any other breach of security.</p>
 
-      <div class="mt-16 max-w-2xl">
-        <h2 class="text-2xl font-bold tracking-tight text-white">Everything you need to get up and running</h2>
-        <p class="mt-6">Purus morbi dignissim senectus mattis adipiscing. Amet, massa quam varius orci dapibus volutpat cras. In amet eu ridiculus leo sodales cursus tristique. Tincidunt sed tempus ut viverra ridiculus non molestie. Gravida quis fringilla amet eget dui tempor dignissim. Facilisis auctor venenatis varius nunc, congue erat ac. Cras fermentum convallis quam.</p>
-        <p class="mt-8">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">5. Prohibited Conduct</h2>
+        <p>Engaging in illegal activities or supporting illegal activities through the use of the data is strictly prohibited. Publishing, selling, or distributing the data outside the scope permitted by these Terms is also forbidden.</p>
+
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">6. Termination</h2>
+        <p>Any violation of these Terms will result in immediate termination of your subscription without any refund for the last billing period. The Service provider may terminate your access to the Service at any time, with or without cause, with or without notice, effective immediately.</p>
+
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">7. Disclaimer of Warranties</h2>
+        <p>The Service is provided on an "as is" and "as available" basis. The Service provider expressly disclaims all warranties of any kind, whether express or implied, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose and non-infringement.</p>
+
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">8. Limitation of Liability</h2>
+        <p>In no event shall the Service provider be liable for any direct, indirect, incidental, special, consequential, or exemplary damages, resulting from the use or the inability to use the Service.</p>
+
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">9. Indemnification</h2>
+        <p>You agree to indemnify and hold harmless the Service provider from any claims, damages, or expenses arising from your use of the Service.</p>
+
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">10. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. Continued use of the Service after such changes will constitute your consent to such changes.</p>
+
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-white">11. Contact Information</h2>
+        <p>Questions about the Terms of Service should be sent to us at [Insert Email Address Here].</p>
       </div>
     </div>
   </div>
