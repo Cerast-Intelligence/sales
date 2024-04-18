@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main class="relative isolate text-white">
+  <main class="relative isolate text-white flex">
   <h1>Terms of Service for DataStream Subscrip text-whitetion</h1>
 
     <h2>1. Acceptance of Terms</h2>
