@@ -275,7 +275,7 @@ const stop = () => {
 
 const start = () => {
   isConnecting.value = true;
-  ws = new WebSocket(`wss://cerast-intelligence.com:8080/ws`)
+  ws = new WebSocket(`wss://stream.cerast-intelligence.com:8080/ws`)
 
   ws.onopen = () => {
     ws.send(apiKey.value)
