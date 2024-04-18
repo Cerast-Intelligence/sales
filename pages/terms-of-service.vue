@@ -3,7 +3,8 @@
 </script>
 
 <template>
-  <h1>Terms of Service for DataStream Subscription</h1>
+  <main class="relative isolate text-white">
+  <h1>Terms of Service for DataStream Subscrip text-whitetion</h1>
 
     <h2>1. Acceptance of Terms</h2>
     <p>By subscribing to and using the DataStream service ("Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the Service.</p>
@@ -51,7 +52,7 @@
     <p>If you have any questions about these Terms or the Service, please contact us at [insert contact information here].</p>
 
     <p>By subscribing to and using the Service, you acknowledge that you have read, understood, and agree to be bound by these Terms.</p>
-
+</main>
 </template>
 
 <style scoped>
