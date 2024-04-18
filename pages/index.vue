@@ -10,19 +10,25 @@
           <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200" leave-from="opacity-100 translate-y-0 sm:scale-100" leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
             <DialogPanel class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
               <div>
-                <div class="mt-3 text-center sm:mt-5">
-                  <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">Version 1.0</DialogTitle>
+                <div class="mt-3 text-left sm:mt-5">
+                  <DialogTitle as="h3" class=" text-center text-base font-semibold leading-6 text-gray-900">Version 1.0</DialogTitle>
                   <div class="mt-2">
                     <p class="text-sm text-gray-500">
-                      <ul>
+                      <ul >
                         <li>Detection of exposed .git</li>
+                        <li>Detection of exposed .env</li>
+                        <li>Detection of exposed backups and database files</li>
+                        <li>Detection of exposed ssh-keys</li>
+                        <li>Detection of outdated Wordpress</li>
+                        <li>Detection of outdated Webserver</li>
+                        <li>Detection of Wordpress in setup</li>
                       </ul>
                     </p>
                   </div>
                 </div>
               </div>
               <div class="mt-5 sm:mt-6">
-                <button type="button" class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" @click="open = false">Go back to dashboard</button>
+                <button type="button" class="inline-flex w-full justify-center rounded-md bg-rose-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600" @click="open = false">Go back to dashboard</button>
               </div>
             </DialogPanel>
           </TransitionChild>
@@ -105,7 +111,7 @@
   <div id="subscribe" class="isolate overflow-hidden bg-gray-900">
     <div class="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8">
       <div class="mx-auto max-w-4xl">
-        <h2 class="text-base font-semibold leading-7 text-indigo-400">Pricing</h2>
+        <h2 class="text-base font-semibold leading-7 text-rose-400">Pricing</h2>
         <p class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">The right price for you, <br class="hidden sm:inline lg:hidden" />whoever you are</p>
       </div>
       <div class="relative mt-6">
@@ -127,7 +133,7 @@
           <div class="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-3">
             <div v-for="tier in tiers" :key="tier.id" class="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
               <div>
-                <h3 :id="tier.id" class="text-base font-semibold leading-7 text-indigo-600">{{ tier.name }}</h3>
+                <h3 :id="tier.id" class="text-base font-semibold leading-7 text-rose-600">{{ tier.name }}</h3>
                 <div class="mt-4 flex items-baseline gap-x-2">
                   <span class="text-5xl font-bold tracking-tight text-gray-900">{{ tier.priceMonthly }}</span>
                   <span class="text-base font-semibold leading-7 text-gray-600">/month</span>
@@ -135,19 +141,19 @@
                 <p class="mt-6 text-base leading-7 text-gray-600">{{ tier.description }}</p>
                 <ul role="list" class="mt-10 space-y-4 text-sm leading-6 text-gray-600">
                   <li v-for="feature in tier.features" :key="feature" class="flex gap-x-3">
-                    <CheckIcon class="h-6 w-5 flex-none text-indigo-600" aria-hidden="true" />
+                    <CheckIcon class="h-6 w-5 flex-none text-rose-600" aria-hidden="true" />
                     {{ feature }}
                   </li>
                 </ul>
               </div>
-              <a :href="tier.href" :aria-describedby="tier.id" class="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started today</a>
+              <a :href="tier.href" :aria-describedby="tier.id" class="mt-8 block rounded-md bg-rose-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">Get started today</a>
             </div>
             <div class="flex bg-white flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-3 lg:flex-row lg:items-center">
               <div class="lg:min-w-0 lg:flex-1">
-                <h3 class="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Discounted</h3>
+                <h3 class="text-lg font-semibold leading-8 tracking-tight text-rose-600">Discounted</h3>
                 <p class="mt-1 text-base leading-7 text-gray-600">If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our services</p>
               </div>
-              <a href="mailto:discount@cerast-intelligence.com" class="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact us <span aria-hidden="true">&rarr;</span></a>
+              <a href="mailto:discount@cerast-intelligence.com" class="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-rose-600 ring-1 ring-inset ring-rose-200 hover:ring-rose-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">Contact us <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
         </div>
@@ -266,7 +272,7 @@ import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CheckIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
-const open = ref(true)
+const open = ref(false)
 
 const tiers = [
   {
