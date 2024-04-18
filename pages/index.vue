@@ -131,7 +131,7 @@
       <div class="-mt-80">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-3">
-            <div v-for="tier in tiers" :key="tier.id" class="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
+            <div v-for="tier in tiers" :key="tier.id" class="flex flex-col justify-between rounded-3xl bg-white/80 p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
               <div>
                 <h3 :id="tier.id" class="text-base font-semibold leading-7 text-rose-600">{{ tier.name }}</h3>
                 <div class="mt-4 flex items-baseline gap-x-2">
@@ -148,7 +148,7 @@
               </div>
               <a :href="tier.href" :aria-describedby="tier.id" class="mt-8 block rounded-md bg-rose-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">Get started today</a>
             </div>
-            <div class="flex bg-white flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-3 lg:flex-row lg:items-center">
+            <div class="flex bg-white/80 flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-3 lg:flex-row lg:items-center">
               <div class="lg:min-w-0 lg:flex-1">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-rose-600">Discounted</h3>
                 <p class="mt-1 text-base leading-7 text-gray-600">If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our services</p>
@@ -284,14 +284,6 @@ const tiers = [
     features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
   },
   {
-    name: '3 Months',
-    id: '3month',
-    href: '#',
-    priceMonthly: '$39',
-    description: 'For $119/3months get access to our Datastream for Bug Bounty.',
-    features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
-  },
-  {
     name: '6 Months',
     id: '6month',
     href: '#',
@@ -299,6 +291,15 @@ const tiers = [
     description: 'For $199/6months get access to our Datastream for Bug Bounty.',
     features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time','Feature Requests'],
   },
+  {
+    name: '3 Months',
+    id: '3month',
+    href: '#',
+    priceMonthly: '$39',
+    description: 'For $119/3months get access to our Datastream for Bug Bounty.',
+    features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
+  },
+  
 ]
 
 
