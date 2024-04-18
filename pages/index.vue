@@ -92,7 +92,7 @@
     <div class="flow-root pb-24 sm:pb-32">
       <div class="-mt-80">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-          <div class="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
+          <div class="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-3">
             <div v-for="tier in tiers" :key="tier.id" class="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
               <div>
                 <h3 :id="tier.id" class="text-base font-semibold leading-7 text-indigo-600">{{ tier.name }}</h3>
