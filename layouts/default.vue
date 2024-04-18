@@ -129,6 +129,7 @@ const footerNavigation = {
     { name: 'Imprint', href: '/imprint' },
     { name: 'Privacy', href: '/privacy-policy' },
     { name: 'Terms', href: '/terms-of-service' },
+    { name: 'Refund', href: '/refund' },
   ],
   social: [
 
