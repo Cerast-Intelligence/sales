@@ -54,7 +54,7 @@
         <NuxtImg lazy class="h-32" src="/images/logo.webp" alt="Cerast Intelligence"/>
         <div class="mt-24 sm:mt-32 lg:mt-16">
           <a href="#" class="inline-flex space-x-6">
-            <span
+            <span @click="open = true"
                 class="rounded-full bg-rose-500/10 px-3 py-1 text-sm font-semibold leading-6 text-rose-400 ring-1 ring-inset ring-rose-500/20">What's new</span>
             <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300" href="/monitor">
               <span>New detections</span>
@@ -262,7 +262,7 @@ import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CheckIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
 
-const open = ref(true
+const open = ref(true)
 
 const tiers = [
   {
