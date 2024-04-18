@@ -236,7 +236,7 @@ import { CheckIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 const tiers = [
   {
     name: '1 Month',
-    id: 'tier-hobby',
+    id: '1month',
     href: '#',
     priceMonthly: '$49',
     description: 'For $49/month get access to our Datastream for Bug Bounty.',
@@ -244,18 +244,18 @@ const tiers = [
   },
   {
     name: '3 Months',
-    id: 'tier-hobby',
+    id: '3month',
     href: '#',
     priceMonthly: '$39',
-    description: 'For $119.99/3months get access to our Datastream for Bug Bounty.',
+    description: 'For $119/3months get access to our Datastream for Bug Bounty.',
     features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
   },
   {
     name: '6 Months',
-    id: 'tier-hobby',
+    id: '6month',
     href: '#',
     priceMonthly: '$33',
-    description: 'For $199.99/6months get access to our Datastream for Bug Bounty.',
+    description: 'For $199/6months get access to our Datastream for Bug Bounty.',
     features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time','Feature Requests'],
   },
 ]
