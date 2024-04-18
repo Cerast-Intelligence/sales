@@ -232,7 +232,6 @@ import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
 import { ref } from 'vue'
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
 import { CheckIcon, XMarkIcon } from '@heroicons/vue/20/solid'
-import { CheckIcon } from '@heroicons/vue/20/solid'
 
 const tiers = [
   {
