@@ -113,9 +113,9 @@
             <div class="flex bg-white flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
               <div class="lg:min-w-0 lg:flex-1">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Discounted</h3>
-                <p class="mt-1 text-base leading-7 text-gray-600">Dolor dolores repudiandae doloribus. Rerum sunt aut eum. Odit omnis non voluptatem sunt eos nostrum.</p>
+                <p class="mt-1 text-base leading-7 text-gray-600">If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our services</p>
               </div>
-              <a href="#" class="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Buy discounted license <span aria-hidden="true">&rarr;</span></a>
+              <a href="mailto:discount@cerast-intelligence.com" class="rounded-md px-3.5 py-2 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact us <span aria-hidden="true">&rarr;</span></a>
             </div>
           </div>
         </div>
@@ -235,26 +235,28 @@ import { CheckIcon, XMarkIcon } from '@heroicons/vue/20/solid'
 
 const tiers = [
   {
-    name: 'Hobby',
+    name: '1 Month',
     id: 'tier-hobby',
     href: '#',
     priceMonthly: '$49',
-    description: 'Modi dolorem expedita deleniti. Corporis iste qui inventore pariatur adipisci vitae.',
-    features: ['5 products', 'Up to 1,000 subscribers', 'Basic analytics', '48-hour support response time'],
+    description: 'For $49/month get access to our Datastream for Bug Bounty.',
+    features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
   },
   {
-    name: 'Team',
-    id: 'tier-team',
+    name: '3 Months',
+    id: 'tier-hobby',
     href: '#',
-    priceMonthly: '$79',
-    description: 'Explicabo quo fugit vel facere ullam corrupti non dolores. Expedita eius sit sequi.',
-    features: [
-      'Unlimited products',
-      'Unlimited subscribers',
-      'Advanced analytics',
-      '1-hour, dedicated support response time',
-      'Marketing automations',
-    ],
+    priceMonthly: '$39',
+    description: 'For $119.99/3months get access to our Datastream for Bug Bounty.',
+    features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
+  },
+  {
+    name: '6 Months',
+    id: 'tier-hobby',
+    href: '#',
+    priceMonthly: '$33',
+    description: 'For $199.99/6months get access to our Datastream for Bug Bounty.',
+    features: ['unlimited hits', 'easy access via monitoring page',  '48-hour support response time','Feature Requests'],
   },
 ]
 
