@@ -41,8 +41,6 @@
                     class="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400">
             Get started
           </NuxtLink>
-          <NuxtLink to="/about-us" class="text-sm font-semibold leading-6 text-white">Learn more <span
-              aria-hidden="true">→</span></NuxtLink>
         </div>
       </div>
       <div class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
