@@ -53,14 +53,14 @@
       <div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
         <NuxtImg lazy class="h-32" src="/images/logo.webp" alt="Cerast Intelligence"/>
         <div class="mt-24 sm:mt-32 lg:mt-16">
-          <a href="#" class="inline-flex space-x-6">
-            <span @click="open = true"
+          <button class="inline-flex space-x-6" @click="open = true">
+            <span 
                 class="rounded-full bg-rose-500/10 px-3 py-1 text-sm font-semibold leading-6 text-rose-400 ring-1 ring-inset ring-rose-500/20">What's new</span>
-            <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300" href="/monitor">
+            <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300" >
               <span>New detections</span>
               <ChevronRightIcon class="h-5 w-5 text-gray-500" aria-hidden="true"/>
             </span>
-          </a>
+          </button>
         </div>
         <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Find security issues with ease</h1>
         <p class="mt-6 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We help you find them!</p>
