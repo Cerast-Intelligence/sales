@@ -11,9 +11,13 @@
             <DialogPanel class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
               <div>
                 <div class="mt-3 text-center sm:mt-5">
-                  <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">Payment successful</DialogTitle>
+                  <DialogTitle as="h3" class="text-base font-semibold leading-6 text-gray-900">Version 1.0</DialogTitle>
                   <div class="mt-2">
-                    <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.</p>
+                    <p class="text-sm text-gray-500">
+                      <ul>
+                        <li>Detection of exposed .git</li>
+                      </ul>
+                    </p>
                   </div>
                 </div>
               </div>
