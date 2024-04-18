@@ -88,14 +88,6 @@
               </div>
             </div>
             <div class="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 class="text-sm font-semibold leading-6 text-white">Company</h3>
-                <ul role="list" class="mt-6 space-y-4">
-                  <li v-for="item in footerNavigation.company" :key="item.name">
-                    <a :href="item.href" class="text-sm leading-6 text-gray-300 hover:text-white">{{ item.name }}</a>
-                  </li>
-                </ul>
-              </div>
               <div class="mt-10 md:mt-0">
                 <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
                 <ul role="list" class="mt-6 space-y-4">
@@ -108,7 +100,7 @@
           </div>
         </div>
         <div class="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p class="text-xs leading-5 text-gray-400">&copy; 2024 Cerast Intelligence UG (haftungsbeschränkt). All rights reserved.</p>
+          <p class="text-xs leading-5 text-gray-400">&copy; 2024 Cerast Intelligence. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -135,12 +127,9 @@ const navigation = [
 ]
 
 const footerNavigation = {
-  company: [
-    { name: 'About', href: '/about-us' }
-  ],
   legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
+    { name: 'Imprint', href: '/imprint' },
+    { name: 'Privacy', href: '/privacy-policy' },
     { name: 'Terms', href: '/terms-of-service' },
   ],
   social: [
