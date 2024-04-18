@@ -110,7 +110,7 @@
               </div>
               <a :href="tier.href" :aria-describedby="tier.id" class="mt-8 block rounded-md bg-indigo-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started today</a>
             </div>
-            <div class="flex bg-white flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
+            <div class="flex bg-white flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-3 lg:flex-row lg:items-center">
               <div class="lg:min-w-0 lg:flex-1">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-indigo-600">Discounted</h3>
                 <p class="mt-1 text-base leading-7 text-gray-600">If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our services</p>
