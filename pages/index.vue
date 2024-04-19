@@ -20,8 +20,10 @@
                         <li>Detection of exposed backups and database files</li>
                         <li>Detection of exposed ssh-keys</li>
                         <li>Detection of outdated Wordpress</li>
-                        <li>Detection of outdated Webserver</li>
+                        <li>Detection of outdated Webserver (Apache, Tomcat, IIS)</li>
+                        <li>Detection of outdated SSH-Server</li>
                         <li>Detection of Wordpress in setup</li>
+                        <li>Detection of old webpages (no changes since 2018)</li>
                       </ul>
                     </p>
                   </div>
