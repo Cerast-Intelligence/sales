@@ -132,11 +132,11 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
           <div class="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-3">
             <div v-for="tier in tiers" :key="tier.id" class="flex flex-col justify-between rounded-3xl bg-white/80 p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10">
-              <div>
+              <div >
                 <h3 :id="tier.id" class="text-base font-semibold leading-7 text-rose-600">{{ tier.name }}</h3>
                 <div class="mt-4 flex items-baseline gap-x-2">
-                  <span class="text-5xl font-bold tracking-tight text-gray-900">{{ tier.priceMonthly }}</span>
-                  <span class="text-base font-semibold leading-7 text-gray-600">/month</span>
+                  <span class="text-5xl font-bold tracking-tight text-gray-900"  :class="{ 'text-rose-600 ; text-6xl; text-decoration-line: underline': tier.highlight }">{{ tier.priceMonthly }}</span>
+                  <span class="text-base font-semibold leading-7 text-gray-600"   >/month</span>
                 </div>
                 <p class="mt-6 text-base leading-7 text-gray-600">{{ tier.description }}</p>
                 <ul role="list" class="mt-10 space-y-4 text-sm leading-6 text-gray-600">
@@ -280,6 +280,7 @@ const tiers = [
     id: '1month',
     href: '#',
     priceMonthly: '$49',
+    highlight : false,
     description: 'For $49/month get access to our Datastream for Bug Bounty.',
     features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
   },
@@ -288,6 +289,7 @@ const tiers = [
     id: '6month',
     href: '#',
     priceMonthly: '$33',
+    highlight : true,
     description: 'For $199/6months get access to our Datastream for Bug Bounty.',
     features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time','Feature Requests'],
   },
@@ -296,6 +298,7 @@ const tiers = [
     id: '3month',
     href: '#',
     priceMonthly: '$39',
+    highlight : false,
     description: 'For $119/3months get access to our Datastream for Bug Bounty.',
     features: ['2 Days free trial','unlimited hits', 'easy access via monitoring page',  '48-hour support response time'],
   },
