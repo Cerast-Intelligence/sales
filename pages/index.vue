@@ -320,6 +320,11 @@ useHead({
 
 const faqs = [
   {
+    question: "If I buy 6 months, how does the discount code work?",
+    answer:
+        'The discount code applies to "each payment period". This means if you have 50% off you get a discount of ~$100 because it applies to the whole 6 month',
+  },
+  {
     question: "Are there student, NGO... discounts?",
     answer:
         "If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our service. Contact us!",
@@ -328,11 +333,6 @@ const faqs = [
     question: "I have a discount code, where can I redeem it?",
     answer:
         "During the payment process, there is a field labeled 'Discount Code' use it there",
-  },
-  {
-    question: "If I buy 6 months, how does the discount code work?",
-    answer:
-        'The discount code applies to "each payment period". This means if you have 50% off you get a discount of ~$100 because it applies to the whole 6 month',
   },
   {
     question: "Is the service legal?",
