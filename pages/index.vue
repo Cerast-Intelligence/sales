@@ -16,7 +16,7 @@
                     <p class="text-sm text-gray-500">
                       <ul >
                         <li>Detection of exposed .git</li>
-                        <li>Detection of exposed .env</li>
+                        <li>Detection of exposed .env, config.php, config.xml</li>
                         <li>Detection of exposed backups and database files</li>
                         <li>Detection of exposed ssh-keys</li>
                         <li>Detection of outdated Wordpress</li>
@@ -276,9 +276,29 @@ useHead({
 
 const faqs = [
   {
-    question: "If I buy 6 months, how does the discount code work?",
+    question: "Why should i buy your product?",
     answer:
-        'The discount code applies to "each payment period". This means if you have 50% off you get a discount of ~$100 because it applies to the whole 6 month',
+        'We give you easy bug bounty targets which are pre verified. The return of investment is therefore high.',
+  },
+  {
+    question: "Whats the catch?",
+    answer:
+        "There is none.",
+  },
+  {
+    question: "Is the service legal?",
+    answer:
+        "Yes! We provide data which is somewhat publicly available. We're just aggregating,filtering and analyzing it to provide it in a easy way for you! We are a registered business in Germany, therefore being not legal would be quit bad for us :)",
+  },
+  {
+    question: "Can I use the data for commercial purposes?",
+    answer:
+        "Yes, you can use the data for commercial purposes. The only restriction is that you can not resell the data directly.",
+  },
+  {
+    question: "I need API access",
+    answer:
+        "Please contact us at api@cerast-intelligence.com.",
   },
   {
     question: "Are there student, NGO... discounts?",
@@ -286,14 +306,9 @@ const faqs = [
         "If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our service. Contact us!",
   },
   {
-    question: "I have a discount code, where can I redeem it?",
+    question: "If I buy 6 months, how does the discount code work?",
     answer:
-        "During the payment process, there is a field labeled 'Discount Code' use it there",
-  },
-  {
-    question: "Is the service legal?",
-    answer:
-        "Yes! We provide data which is somewhat publicly available. We're just aggregating,filtering and analyzing it to provide it in a easy way for you!",
+        'The discount code applies to "each payment period". This means if you have 50% off you get a discount of ~$100 because it applies to the whole 6 month',
   },
   {
     question: "Can I cancel my subscription?",
@@ -305,11 +320,7 @@ const faqs = [
     answer:
         "We are not offering refunds at the moment due to the nature of the product. If you're not sure if the service is right for you, you can try it out for free for 2 days.",
   },
-  {
-    question: "Can I use the data for commercial purposes?",
-    answer:
-        "Yes, you can use the data for commercial purposes. The only restriction is that you can not resell the data directly.",
-  },
+  
 ]
 
 
