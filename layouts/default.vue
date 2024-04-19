@@ -121,7 +121,7 @@ const mobileMenuOpen = ref(false)
 const navigation = [
   { name: 'Subscribe', href: '/#subscribe' },
   { name: 'FAQ', href: '/#faq' },
-  { name: 'Testimonials', href: '/#testimonials' }
+  { name: 'Pricing', href: '/#subscribe' }
 ]
 
 const footerNavigation = {
