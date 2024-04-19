@@ -75,7 +75,7 @@
           </button>
         </div>
         <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Find security issues with ease</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We help you find them!</p>
+        <p class="mt-6 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We will help you! Just open the flood gates and we will throw easy targets at you which you can directly convert to bug bounty</p>
         <div class="mt-10 flex items-center gap-x-6">
           <NuxtLink to="#subscribe"
                     class="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400">
@@ -117,7 +117,7 @@
         <p class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">The right price for you, <br class="hidden sm:inline lg:hidden" />whoever you are</p>
       </div>
       <div class="relative mt-6">
-        <p class="mx-auto max-w-2xl text-lg leading-8 text-white/60">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos odit doloribus molestiae voluptatum.</p>
+        <p class="mx-auto max-w-2xl text-lg leading-8 text-white/60">All pricing tiers get access to the same data. Only difference is the price per month.</p>
         <svg viewBox="0 0 1208 1024" class="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:-top-12 md:-top-20 lg:-top-12 xl:top-0">
           <ellipse cx="604" cy="512" fill="url(#6d1bd035-0dd1-437e-93fa-59d316231eb0)" rx="604" ry="512" />
           <defs>
