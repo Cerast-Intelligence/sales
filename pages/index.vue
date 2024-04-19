@@ -162,6 +162,32 @@
   </div>
   
 
+  
+
+  <div id="faq" class="bg-gray-900">
+    <div class="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8 lg:py-20">
+      <div class="mx-auto max-w-7xl divide-y divide-white/10">
+        <h2 class="text-2xl font-bold leading-10 tracking-tight text-white">Frequently asked questions</h2>
+        <dl class="mt-10 space-y-6 divide-y divide-white/10">
+          <Disclosure as="div" v-for="faq in faqs" :key="faq.question" class="pt-6" v-slot="{ open }">
+            <dt>
+              <DisclosureButton class="flex w-full items-start justify-between text-left text-white">
+                <span class="text-base font-semibold leading-7">{{ faq.question }}</span>
+                <span class="ml-6 flex h-7 items-center">
+                  <PlusSmallIcon v-if="!open" class="h-6 w-6" aria-hidden="true"/>
+                  <MinusSmallIcon v-else class="h-6 w-6" aria-hidden="true"/>
+                </span>
+              </DisclosureButton>
+            </dt>
+            <DisclosurePanel as="dd" class="mt-2 pr-12">
+              <p class="text-base leading-7 text-gray-400">{{ faq.answer }}</p>
+            </DisclosurePanel>
+          </Disclosure>
+        </dl>
+      </div>
+    </div>
+  </div>
+
   <section id="testimonials" class="bg-gray-900 py-12 sm:py-16">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto grid max-w-2xl grid-cols-1 lg:mx-0 lg:max-w-none lg:grid-cols-2">
@@ -210,29 +236,6 @@
     </div>
   </section>
 
-  <div id="faq" class="bg-gray-900">
-    <div class="mx-auto max-w-7xl px-6 py-12 sm:py-16 lg:px-8 lg:py-20">
-      <div class="mx-auto max-w-7xl divide-y divide-white/10">
-        <h2 class="text-2xl font-bold leading-10 tracking-tight text-white">Frequently asked questions</h2>
-        <dl class="mt-10 space-y-6 divide-y divide-white/10">
-          <Disclosure as="div" v-for="faq in faqs" :key="faq.question" class="pt-6" v-slot="{ open }">
-            <dt>
-              <DisclosureButton class="flex w-full items-start justify-between text-left text-white">
-                <span class="text-base font-semibold leading-7">{{ faq.question }}</span>
-                <span class="ml-6 flex h-7 items-center">
-                  <PlusSmallIcon v-if="!open" class="h-6 w-6" aria-hidden="true"/>
-                  <MinusSmallIcon v-else class="h-6 w-6" aria-hidden="true"/>
-                </span>
-              </DisclosureButton>
-            </dt>
-            <DisclosurePanel as="dd" class="mt-2 pr-12">
-              <p class="text-base leading-7 text-gray-400">{{ faq.answer }}</p>
-            </DisclosurePanel>
-          </Disclosure>
-        </dl>
-      </div>
-    </div>
-  </div>
 
   <div class="relative isolate overflow-hidden bg-gray-900">
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -316,6 +319,21 @@ useHead({
 
 
 const faqs = [
+  {
+    question: "Are there student, NGO... discounts?",
+    answer:
+        "If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our service. Contact us!",
+  },
+  {
+    question: "I have a discount code, where can I redeem it?",
+    answer:
+        "During the payment process, there is a field labeled 'Discount Code' use it there",
+  },
+  {
+    question: "If I buy 6 months, how does the discount code work?",
+    answer:
+        'The discount code applies to "each payment period". This means if you have 50% off you get a discount of ~$100 because it applies to the whole 6 month',
+  },
   {
     question: "Is the service legal?",
     answer:
