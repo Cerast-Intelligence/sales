@@ -10,5 +10,11 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/image"]
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml']
+    }
+  },
+
+  modules: ["@nuxt/image", '@nuxtjs/sitemap'],
 })

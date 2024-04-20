@@ -284,6 +284,10 @@ onMounted(() => {
     ws.send("TESTMODE")
   }
 
+  setTimeout(() => {
+    ws.close()
+  }, 10*60*1000)
+
 
   ws.onmessage = (event) => {
     const message = event.data
