@@ -55,41 +55,55 @@
 
   <div v-if="isConnected || timeline.length" class="bg-gray-900">
     <div>
-      <!-- Mobile filter dialog -->
       <TransitionRoot as="template" :show="mobileFiltersOpen">
         <Dialog as="div" class="relative z-40 lg:hidden" @close="mobileFiltersOpen = false">
-          <TransitionChild as="template" enter="transition-opacity ease-linear duration-300" enter-from="opacity-0" enter-to="opacity-100" leave="transition-opacity ease-linear duration-300" leave-from="opacity-100" leave-to="opacity-0">
-            <div class="fixed inset-0 bg-black bg-opacity-25" />
+          <TransitionChild as="template" enter="transition-opacity ease-linear duration-300" enter-from="opacity-0"
+                           enter-to="opacity-100" leave="transition-opacity ease-linear duration-300"
+                           leave-from="opacity-100" leave-to="opacity-0">
+            <div class="fixed inset-0 bg-black bg-opacity-25"/>
           </TransitionChild>
 
           <div class="fixed inset-0 z-40 flex">
-            <TransitionChild as="template" enter="transition ease-in-out duration-300 transform" enter-from="translate-x-full" enter-to="translate-x-0" leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0" leave-to="translate-x-full">
-              <DialogPanel class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+            <TransitionChild as="template" enter="transition ease-in-out duration-300 transform"
+                             enter-from="translate-x-full" enter-to="translate-x-0"
+                             leave="transition ease-in-out duration-300 transform" leave-from="translate-x-0"
+                             leave-to="translate-x-full">
+              <DialogPanel
+                  class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-gray-900 py-4 pb-6 shadow-xl">
                 <div class="flex items-center justify-between px-4">
                   <h2 class="text-lg font-medium text-white">Filters</h2>
-                  <button type="button" class="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500" @click="mobileFiltersOpen = false">
+                  <button type="button"
+                          class="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500"
+                          @click="mobileFiltersOpen = false">
                     <span class="sr-only">Close menu</span>
-                    <XMarkIcon class="h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon class="h-6 w-6" aria-hidden="true"/>
                   </button>
                 </div>
 
-                <!-- Filters -->
                 <form class="mt-4">
-                  <Disclosure as="div" v-for="section in filters" :key="section.name" class="border-t border-gray-200 pb-4 pt-4" v-slot="{ open }">
+                  <Disclosure as="div" v-for="section in filters" :key="section.name"
+                              class="border-t border-gray-200 pb-4 pt-4" v-slot="{ open }">
                     <fieldset>
                       <legend class="w-full px-2">
-                        <DisclosureButton class="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500">
+                        <DisclosureButton
+                            class="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500">
                           <span class="text-sm font-medium text-white">{{ section.name }}</span>
                           <span class="ml-6 flex h-7 items-center">
-                            <ChevronDownIcon :class="[open ? '-rotate-180' : 'rotate-0', 'h-5 w-5 transform']" aria-hidden="true" />
+                            <ChevronDownIcon :class="[open ? '-rotate-180' : 'rotate-0', 'h-5 w-5 transform']"
+                                             aria-hidden="true"/>
                           </span>
                         </DisclosureButton>
                       </legend>
                       <DisclosurePanel class="px-4 pb-2 pt-4">
                         <div class="space-y-6">
-                          <div v-for="(option, optionIdx) in section.options" :key="option.value" class="flex items-center">
-                            <input :id="`${section.id}-${optionIdx}-mobile`" :name="`${section.id}[]`" :value="option.value" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                            <label :for="`${section.id}-${optionIdx}-mobile`" class="ml-3 text-sm text-gray-500">{{ option.label }}</label>
+                          <div v-for="(option, optionIdx) in section.options" :key="option.value"
+                               class="flex items-center">
+                            <input @change="toggleFilter(section.id, option.value)"
+                                   :id="`${section.id}-${optionIdx}-mobile`" :name="`${section.id}[]`"
+                                   :value="option.value" type="checkbox"
+                                   class="h-4 w-4 rounded border-gray-300 text-rose-600 focus:ring-rose-500"/>
+                            <label :for="`${section.id}-${optionIdx}-mobile`"
+                                   class="ml-3 text-sm text-gray-400">{{ option.label }}</label>
                           </div>
                         </div>
                       </DisclosurePanel>
@@ -115,19 +129,25 @@
             <h2 class="sr-only">Filters</h2>
 
             <button type="button" class="inline-flex items-center lg:hidden" @click="mobileFiltersOpen = true">
-              <span class="text-sm font-medium text-gray-700">Filters</span>
-              <PlusIcon class="ml-1 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+              <span class="text-sm font-medium text-white">Filters</span>
+              <PlusIcon class="ml-1 h-5 w-5 flex-shrink-0 text-white" aria-hidden="true"/>
             </button>
 
             <div class="hidden lg:block">
               <form class="space-y-10 divide-y divide-gray-200">
-                <div v-for="(section, sectionIdx) in filters" :key="section.name" :class="sectionIdx === 0 ? null : 'pt-10'">
+                <p class="text-gray-400">Showing <span class="text-gray-200">{{ timeline.length }}</span> of <span
+                    class="text-gray-200">{{ events.length }}</span></p>
+                <div v-for="(section, sectionIdx) in filters" :key="section.name" class="pt-10">
                   <fieldset>
                     <legend class="block text-sm font-medium text-white">{{ section.name }}</legend>
                     <div class="space-y-3 pt-6">
                       <div v-for="(option, optionIdx) in section.options" :key="option.value" class="flex items-center">
-                        <input :id="`${section.id}-${optionIdx}`" :name="`${section.id}[]`" :value="option.value" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500" />
-                        <label :for="`${section.id}-${optionIdx}`" class="ml-3 text-sm text-gray-400">{{ option.label }}</label>
+                        <input @change="toggleFilter(section.id, option.value)" :id="`${section.id}-${optionIdx}`"
+                               :name="`${section.id}[]`" :value="option.value" type="checkbox"
+                               class="h-4 w-4 rounded border-gray-300 text-rose-600 focus:ring-rose-500"/>
+                        <label :for="`${section.id}-${optionIdx}`" class="ml-3 text-sm text-gray-400">{{
+                            option.label
+                          }}</label>
                       </div>
                     </div>
                   </fieldset>
@@ -136,30 +156,36 @@
             </div>
           </aside>
 
-          <!-- Product grid -->
           <div class="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
             <div class="flow-root">
               <ul role="list" class="-mb-8">
                 <li v-for="(event, eventIdx) in timeline" :key="event.id">
                   <div class="relative pb-8">
-            <span v-if="eventIdx !== timeline.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-rose-600"
+            <span v-if="eventIdx !== timeline.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-white"
                   aria-hidden="true"/>
                     <div class="relative flex space-x-3">
                       <div>
               <span
-                  :class="[event.iconBackground, 'h-8 w-8 rounded-full flex items-center justify-center ring-4 ring-rose-600']">
-                <component :is="event.icon" class="h-5 w-5 text-white" aria-hidden="true"/>
+                  class="h-8 w-8 rounded-full flex items-center justify-center ring-2 bg-gray-800 text-white"
+                  :class="{'ring-blue-700 text-blue-700': event.impact === 'LOW','ring-yellow-700 text-yellow-700': event.impact === 'MEDIUM','ring-rose-800 text-rose-800': event.impact === 'HIGH'}">
+                <component :is="event.icon" class="h-5 w-5" aria-hidden="true"/>
               </span>
                       </div>
-                      <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                      <div class="flex min-w-0 flex-1 justify-between space-x-4">
                         <div>
-                          <p class="text-sm text-white">
-                            {{ event.domain }} {{ event.path }} {{ event.category }}
+                          <p class="text-white">
+                            {{ event.domain }}
+                          </p>
+                          <p class="text-sm text-gray-400">
+                            {{ event.path }}
                           </p>
                         </div>
                         <div class="whitespace-nowrap text-right text-sm text-gray-500 flex items-center">
                           <time :datetime="event.datetime">{{ event.time }}</time>
-                          <a v-if="event.domain && event.path" target="_blank" :href="`https://${event.domain}${event.path}`" class="text-rose-700 w-6 ml-2"><ArrowTopRightOnSquareIcon /></a>
+                          <a v-if="event.showLink" target="_blank" :href="`https://${event.domain}${event.path}`"
+                             class="text-rose-700 w-6 ml-2">
+                            <ArrowTopRightOnSquareIcon/>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -176,7 +202,8 @@
   <div v-if="!isConnected" class="relative isolate overflow-hidden bg-gray-900">
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">You're not yet a customer?<br/>No Problem!</h2>
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">You're not yet a customer?<br/>No Problem!
+        </h2>
         <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
           Just look at our subscription plan and start monitoring the data stream directly after your payment.
         </p>
@@ -191,12 +218,22 @@
   </div>
 
 
-
 </template>
 
 <script setup>
-import {CalendarDaysIcon, HandRaisedIcon, DocumentIcon, FingerPrintIcon, ServerIcon, CogIcon, WrenchIcon, CalendarIcon, ArrowTopRightOnSquareIcon} from '@heroicons/vue/24/outline'
-import { ref } from 'vue'
+import {
+  CalendarDaysIcon,
+  HandRaisedIcon,
+  DocumentIcon,
+  FingerPrintIcon,
+  ServerIcon,
+  CogIcon,
+  WrenchIcon,
+  CalendarIcon,
+  ArrowTopRightOnSquareIcon,
+  CircleStackIcon
+} from '@heroicons/vue/24/outline'
+import {ref} from 'vue'
 import {
   Dialog,
   DialogPanel,
@@ -206,8 +243,8 @@ import {
   TransitionChild,
   TransitionRoot,
 } from '@headlessui/vue'
-import { XMarkIcon } from '@heroicons/vue/24/outline'
-import { ChevronDownIcon, PlusIcon } from '@heroicons/vue/20/solid'
+import {XMarkIcon} from '@heroicons/vue/24/outline'
+import {ChevronDownIcon, PlusIcon} from '@heroicons/vue/20/solid'
 
 useHead({
   title: 'Monitor | Cerast Intelligence',
@@ -224,15 +261,43 @@ const filters = [
     id: 'category',
     name: 'Category',
     options: [
-      { value: 'dotenv', label: '.env' },
-      { value: 'dotgit', label: '.git' },
-      { value: 'file', label: 'Files' },
-      { value: 'wpsetup', label: 'WP Setup' },
-      { value: 'wpoutdated', label: 'WP Outdated' },
-      { value: 'ssh', label: 'SSH Keys' },
+      {value: 'config', label: 'Config File'},
+      {value: 'source_code', label: 'SourceCode'},
+      {value: 'wordpress', label: 'WP Setup'},
+      {value: 'outdated', label: 'Outdated Software'},
+      {value: 'credentials', label: 'Credentials'},
+      {value: 'database', label: 'Database'},
+    ],
+  },
+  {
+    id: 'impact',
+    name: 'Impact',
+    options: [
+      {value: 'LOW', label: 'Low'},
+      {value: 'MEDIUM', label: 'Medium'},
+      {value: 'HIGH', label: 'High'},
     ],
   }
 ]
+
+const toggleFilter = (sectionId, optionValue) => {
+  const index = activeFilters.value.findIndex((filter) => filter.sectionId === sectionId && filter.optionValue === optionValue)
+  if (index === -1) {
+    activeFilters.value.push({sectionId, optionValue})
+  } else {
+    activeFilters.value.splice(index, 1)
+  }
+}
+
+onMounted(() => {
+  const apiKeyFromLocalStorage = localStorage.getItem('apiKey')
+  if (apiKeyFromLocalStorage) {
+    apiKey.value = apiKeyFromLocalStorage
+    start()
+  }
+})
+
+const activeFilters = ref([])
 
 const mobileFiltersOpen = ref(false)
 
@@ -242,30 +307,41 @@ const isConnecting = ref(false)
 let ws = null;
 
 const categories = {
-    'dotenv': {
-      icon: CogIcon,
-      color: 'bg-rose-500'
-    },
-    'dotgit': {
-      icon: ServerIcon,
-      color: 'bg-blue-500'
-    },
-    'file': {
-      icon: DocumentIcon,
-      color: 'bg-rose-500'
-    },
-    'wpsetup': {
-      icon: WrenchIcon,
-      color: 'bg-rose-500'
-    },
-    'wpoutdated': {
-      icon: CalendarIcon,
-      color: 'bg-rose-500'
-    },
-    'ssh': {
-      icon: FingerPrintIcon,
-      color: 'bg-rose-500'
-    }
+  'start': {
+    label: "The data stream has started",
+    icon: CogIcon,
+    showLink: false,
+  },
+  'config': {
+    label: "Config File",
+    icon: CogIcon,
+    showLink: true,
+  },
+  'source_code': {
+    label: "Source Code",
+    icon: ServerIcon,
+    showLink: true,
+  },
+  'wordpress': {
+    label: "Wordpress",
+    icon: WrenchIcon,
+    showLink: true,
+  },
+  'outdated': {
+    label: "Outdated",
+    icon: CalendarIcon,
+    showLink: false,
+  },
+  'credentials': {
+    label: "Credentials",
+    icon: FingerPrintIcon,
+    showLink: false,
+  },
+  'database': {
+    label: "Database Backup",
+    icon: CircleStackIcon,
+    showLink: true,
+  },
 }
 
 const stop = () => {
@@ -288,19 +364,21 @@ const start = () => {
 
   ws.onmessage = (event) => {
     const message = event.data
-    if(message === 'AUTH FAIL') {
+    if (message === 'AUTH FAIL') {
       isConnected.value = false;
-    } else if(message === 'SUCCESS WS') {
+    } else if (message === 'SUCCESS WS') {
+      localStorage.setItem('apiKey', apiKey.value)
       isConnected.value = true;
       events.value.unshift({
         id: events.value.length + 1,
-        domain: null,
+        domain: "The data stream has started",
         path: null,
-        category: 'Data will be streamed here',
+        category: 'start',
         time: new Date().toLocaleTimeString(),
         datetime: new Date().toISOString(),
-        icon: CogIcon,
-        iconBackground: 'bg-green-400',
+        icon: categories['start'].icon,
+        iconBackground: categories['start'].color,
+        showLink: categories['start'].showLink,
       })
     } else {
       const messageJson = JSON.parse(message)
@@ -312,8 +390,10 @@ const start = () => {
         category: messageJson.category,
         time: new Date().toLocaleTimeString(),
         datetime: new Date().toISOString(),
-        icon: CogIcon,
-        iconBackground: 'bg-green-400',
+        icon: categories[messageJson.category].icon,
+        iconBackground: categories[messageJson.category].color,
+        showLink: categories[messageJson.category].showLink,
+        impact: messageJson.impact,
       })
     }
 
@@ -324,6 +404,26 @@ const start = () => {
 const events = ref([])
 
 const timeline = computed(() => {
-  return events.value
+  if (activeFilters.value.length === 0) {
+    return events.value;
+  }
+
+  return events.value.filter(event => {
+    const sectionSatisfactions = {};
+
+    for (const filter of activeFilters.value) {
+      if (!sectionSatisfactions[filter.sectionId]) {
+        sectionSatisfactions[filter.sectionId] = [];
+      }
+
+      if (event[filter.sectionId] === filter.optionValue) {
+        sectionSatisfactions[filter.sectionId].push(true);
+      } else {
+        sectionSatisfactions[filter.sectionId].push(false);
+      }
+    }
+
+    return Object.values(sectionSatisfactions).every(results => results.includes(true));
+  });
 })
 </script>
