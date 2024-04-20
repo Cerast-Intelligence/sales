@@ -312,8 +312,8 @@ const start = () => {
         category: messageJson.category,
         time: new Date().toLocaleTimeString(),
         datetime: new Date().toISOString(),
-        icon: categories[messageJson.category].icon,
-        iconBackground: categories[messageJson.category].color,
+        icon: CogIcon,
+        iconBackground: 'bg-green-400',
       })
     }
 
