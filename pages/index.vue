@@ -421,7 +421,7 @@ const faqs = [
 
 
 const stats = [
-  {id: 1, name: 'Findings last month', value: '86,400+'},
+  {id: 1, name: 'Findings last month', value: '670,000+'},
   {id: 3, name: 'Countries', value: 'in 120+'},
   {id: 2, name: 'Fulfillment', value: '100% Automated'},
   {id: 4, name: 'Legal', value: '100%'},
