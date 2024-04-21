@@ -112,7 +112,7 @@
                   <div class="px-6 pb-14 pt-6 text-white">
                     <p class="font-bold">
                       These events are live and contain redacted data. <br>
-                      The Data is real and shows how many hits we get.
+                      The goal is to give you a feeling about what you get.
                     </p>
                     <p v-for="event in events" :key="event.id"><time class="text-gray-400" :datetime="event.datetime">{{ event.time }}</time> > {{ event.category }} {{ event.path }} on {{ event.domain }}</p>
                   </div>
@@ -357,14 +357,15 @@ useHead({
   title: 'Home | Cerast Intelligence',
   meta: {
     name: 'description',
-    content: 'Cerast Intelligence provides up to date data on security issues worldwide. Subscribe to our service and get access to all found security issues in a websocket stream. Get easy targets for Bug Bounty'
+    content: 'Cerast Intelligence delivers a comprehensive Datastream designed to identify prime targets for bug bounty and security research efforts. Our service highlights vulnerable assets, including exposed .git directories, .env files, and outdated software, helping you secure potential weaknesses effectively'
   },
   script: [
     {
       id: 'fsc-api',
       src: 'https://sbl.onfastspring.com/sbl/1.0.1/fastspring-builder.min.js',
       type: 'text/javascript',
-      'data-storefront': 'cerastintel.test.onfastspring.com/popup-cerastintel'
+      'data-storefront': 'cerastintel.test.onfastspring.com/popup-cerastintel',
+      async: true
     }
   ],
 })
