@@ -157,7 +157,37 @@
           </aside>
 
           <div class="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
-            <div class="flow-root">
+            <div class="bg-gray-900 w-full">
+              <div class="sm:hidden">
+                <label for="tabs" class="sr-only">Select a tab</label>
+                <select @change="currentTab = $event.target.value" id="tabs" name="tabs"
+                        class="block w-full rounded-md border-none bg-white/5 py-2 pl-3 pr-10 text-base text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-rose-500 sm:text-sm">
+                  <option v-for="tab in tabs" :key="tab" :selected="tab === currentTab" class="bg-gray-800">{{
+                      tab
+                    }}
+                  </option>
+                </select>
+              </div>
+              <div class="hidden sm:block">
+                <nav class="flex border-b border-white/10 py-4">
+                  <ul role="list"
+                      class="flex min-w-full flex-none gap-x-6 px-2 text-sm font-semibold leading-6 text-gray-400">
+                    <li>
+                      <button @click="currentTab = 'Stream'" :class="'Stream' === currentTab ? 'text-rose-600' : ''">
+                        Stream
+                      </button>
+                    </li>
+                    <li>
+                      <button @click="currentTab = 'Saved'" :class="'Saved' === currentTab ? 'text-rose-600' : ''">
+                        Saved {{ savedEvents.length }}
+                      </button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+
+            <div @mousedown.prevent v-show="currentTab === 'Stream'" class="flow-root pt-6">
               <ul role="list" class="-mb-8">
                 <li v-for="(event, eventIdx) in timeline" :key="event.id">
                   <div class="relative pb-8">
@@ -166,7 +196,40 @@
                     <div class="relative flex space-x-3">
                       <div>
               <span
-                  class="h-8 w-8 rounded-full flex items-center justify-center ring-2 bg-gray-800 text-white"
+                  class="h-8 w-8 rounded-full flex items-center justify-center ring-2 bg-gray-800"
+                  :class="{'ring-blue-700 text-blue-700': event.impact === 'LOW','ring-yellow-700 text-yellow-700': event.impact === 'MEDIUM','ring-rose-800 text-rose-800': event.impact === 'HIGH'}">
+                <component :is="event.icon" class="h-5 w-5" aria-hidden="true"/>
+              </span>
+                      </div>
+                      <div class="flex min-w-0 flex-1 justify-between space-x-4">
+                        <div @click="save(event)" class="cursor-pointer">
+                          <p class="text-white">
+                            {{ event.domain }}
+                          </p>
+                          <p class="text-sm text-gray-400">
+                            {{ event.path }}
+                          </p>
+                        </div>
+                        <div class="whitespace-nowrap text-right text-sm text-gray-500 flex items-center">
+                          <time :datetime="event.datetime">{{ event.time }}</time>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div v-show="currentTab === 'Saved'" class="flow-root pt-6">
+              <ul role="list" class="-mb-8">
+                <li v-for="(event, eventIdx) in savedEvents" :key="event.id">
+                  <div class="relative pb-8">
+            <span v-if="eventIdx !== savedEvents.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-white"
+                  aria-hidden="true"/>
+                    <div class="relative flex space-x-3">
+                      <div>
+              <span
+                  class="h-8 w-8 rounded-full flex items-center justify-center ring-2 bg-gray-800"
                   :class="{'ring-blue-700 text-blue-700': event.impact === 'LOW','ring-yellow-700 text-yellow-700': event.impact === 'MEDIUM','ring-rose-800 text-rose-800': event.impact === 'HIGH'}">
                 <component :is="event.icon" class="h-5 w-5" aria-hidden="true"/>
               </span>
@@ -182,10 +245,7 @@
                         </div>
                         <div class="whitespace-nowrap text-right text-sm text-gray-500 flex items-center">
                           <time :datetime="event.datetime">{{ event.time }}</time>
-                          <a v-if="event.showLink" target="_blank" :href="`https://${event.domain}${event.path}`"
-                             class="text-rose-700 w-6 ml-2">
-                            <ArrowTopRightOnSquareIcon/>
-                          </a>
+                          <TrashIcon class="w-5 h-5 cursor-pointer text-rose-600 hover:text-rose-500" @click="remove(event)" />
                         </div>
                       </div>
                     </div>
@@ -231,7 +291,8 @@ import {
   WrenchIcon,
   CalendarIcon,
   ArrowTopRightOnSquareIcon,
-  CircleStackIcon
+  CircleStackIcon,
+    TrashIcon
 } from '@heroicons/vue/24/outline'
 import {ref} from 'vue'
 import {
@@ -255,6 +316,8 @@ useHead({
     },
   ],
 })
+
+const currentTab = ref('Stream');
 
 const filters = [
   {
@@ -402,6 +465,19 @@ const start = () => {
 }
 
 const events = ref([])
+const savedEvents = ref([])
+const save = (event) => {
+  remove(event)
+  savedEvents.value.unshift(event)
+}
+
+const remove = (event) => {
+  const index = savedEvents.value.indexOf(event)
+  if(index !== -1) {
+    savedEvents.value.splice(index, 1)
+  }
+}
+
 
 const timeline = computed(() => {
   if (activeFilters.value.length === 0) {
