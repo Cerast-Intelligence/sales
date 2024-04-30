@@ -148,8 +148,8 @@ const footerNavigation = {
   ],
   billing: [
     {name: 'Refund Policy', href: '/refund'},
-    {name: 'Manage subscription', href: '/billing'},
-    {name: 'Cancel subscription', href: '/billing'},
+    {name: 'Manage subscription', href: 'https://fastspring.com/'},
+    {name: 'Cancel subscription', href: 'https://fastspring.com/'},
   ],
   social: [
     {
