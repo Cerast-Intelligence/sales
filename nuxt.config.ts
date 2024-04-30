@@ -16,5 +16,7 @@ export default defineNuxtConfig({
     }
   },
 
+  nuxtNotifications: {},
+
   modules: ["@nuxt/image", '@nuxtjs/sitemap'],
 })

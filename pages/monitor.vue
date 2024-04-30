@@ -22,6 +22,9 @@
               Stop
             </button>
           </div>
+          <p class="text-sm text-gray-500" v-if="apiKey">
+            <span @click="removeKeyFromLocalStorage()" class="underline cursor-pointer">Remove key from local storage</span>
+          </p>
         </div>
         <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
           <div class="flex flex-col items-start">
@@ -51,6 +54,12 @@
       <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#db2777] to-[#831843] opacity-30"
            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"/>
     </div>
+  </div>
+
+  <div v-if="notifications.length" class="relative mx-auto max-w-7xl px-6 lg:px-8">
+  <alert @close="closeNotification(id)" v-for="(notification, id) in notifications" :key="id" :type="notification.type" class="my-4 sm:my-8">
+    {{ notification.message }}
+  </alert>
   </div>
 
   <div v-if="isConnected || timeline.length" class="bg-gray-900">
@@ -116,9 +125,14 @@
         </Dialog>
       </TransitionRoot>
 
-      <main class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <main class="mx-auto max-w-2xl px-4 py-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
         <div class="border-b border-gray-200 pb-10">
-          <h1 class="text-4xl font-bold tracking-tight text-white">Data Stream</h1>
+          <h1 class="text-4xl font-bold tracking-tight text-white relative">
+            Data Stream
+            <span
+                :class="{ 'bg-green-600 animate-pulse': isConnected, 'bg-rose-600': !isConnected }"
+                class="absolute w-6 h-6 rounded-full top-[25%] ml-2"></span>
+          </h1>
           <p class="mt-4 text-base text-gray-300">
             Monitor the data stream and see what is happening in real time.
           </p>
@@ -162,10 +176,8 @@
                 <label for="tabs" class="sr-only">Select a tab</label>
                 <select @change="currentTab = $event.target.value" id="tabs" name="tabs"
                         class="block w-full rounded-md border-none bg-white/5 py-2 pl-3 pr-10 text-base text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-rose-500 sm:text-sm">
-                  <option v-for="tab in tabs" :key="tab" :selected="tab === currentTab" class="bg-gray-800">{{
-                      tab
-                    }}
-                  </option>
+                  <option class="bg-gray-800">Stream</option>
+                  <option class="bg-gray-800">Saved</option>
                 </select>
               </div>
               <div class="hidden sm:block">
@@ -284,13 +296,11 @@
 import {
   CalendarDaysIcon,
   HandRaisedIcon,
-  DocumentIcon,
   FingerPrintIcon,
   ServerIcon,
   CogIcon,
   WrenchIcon,
   CalendarIcon,
-  ArrowTopRightOnSquareIcon,
   CircleStackIcon,
     TrashIcon
 } from '@heroicons/vue/24/outline'
@@ -307,8 +317,9 @@ import {
 import {XMarkIcon} from '@heroicons/vue/24/outline'
 import {ChevronDownIcon, PlusIcon} from '@heroicons/vue/20/solid'
 
+const title = 'Monitor | Cerast Intelligence';
 useHead({
-  title: 'Monitor | Cerast Intelligence',
+  title,
   meta: [
     {
       name: 'description',
@@ -367,6 +378,16 @@ const mobileFiltersOpen = ref(false)
 const apiKey = ref("")
 const isConnected = ref(false)
 const isConnecting = ref(false)
+const notifications = ref([])
+const closeNotification = (id) => {
+  notifications.value.splice(id, 1)
+}
+
+const removeKeyFromLocalStorage = () => {
+  localStorage.removeItem('apiKey')
+  apiKey.value = ""
+}
+
 let ws = null;
 
 const categories = {
@@ -407,6 +428,9 @@ const categories = {
   },
 }
 
+const events = ref([])
+const savedEvents = ref([])
+
 const stop = () => {
   ws.close()
   isConnected.value = false;
@@ -423,13 +447,26 @@ const start = () => {
   ws.onerror = (error) => {
     isConnected.value = false;
     isConnecting.value = false;
+    const index = notifications.value.push({message: 'An error occurred while connecting to the data stream.', type: 'error'})
+    setTimeout(() => {
+      notifications.value.splice(index - 1, 1)
+    }, 5000)
   }
 
   ws.onmessage = (event) => {
     const message = event.data
-    if (message === 'AUTH FAIL') {
+    if (message === 'EXPIRED') {
+      notifications.value.push({message: 'The API key is expired.', type: 'warning'})
+      isConnected.value = false;
+    }else if(message === 'INVALID TOKEN') {
+      notifications.value.push({message: 'The API key is invalid.', type: 'warning'})
       isConnected.value = false;
     } else if (message === 'SUCCESS WS') {
+      const index = notifications.value.push({message: 'Successfully connected to the data stream', type: 'success'})
+      setTimeout(() => {
+        notifications.value.splice(index - 1, 1)
+      }, 5000)
+
       localStorage.setItem('apiKey', apiKey.value)
       isConnected.value = true;
       events.value.unshift({
@@ -445,6 +482,10 @@ const start = () => {
       })
     } else {
       const messageJson = JSON.parse(message)
+
+      useHead({
+        title: '(' + events.value.length + ') ' + title,
+      })
 
       events.value.unshift({
         id: events.value.length + 1,
@@ -464,8 +505,6 @@ const start = () => {
   }
 }
 
-const events = ref([])
-const savedEvents = ref([])
 const save = (event) => {
   remove(event)
   savedEvents.value.unshift(event)

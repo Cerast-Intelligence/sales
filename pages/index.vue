@@ -277,6 +277,11 @@ import {Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot} from 
 import {CogIcon} from "@heroicons/vue/24/outline/index.js";
 
 const open = ref(false)
+
+onUnmounted(() => {
+  ws.close()
+})
+
 onMounted(() => {
   const ws = new WebSocket(`wss://stream.cerast-intelligence.com:8080/ws`);
 
