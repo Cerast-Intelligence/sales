@@ -1,6 +1,6 @@
 <template>
   <div
-      :class="{ 'bg-blue-600': type === 'info', 'bg-rose-600': type === 'error', 'bg-yellow-600': type === 'warning', 'emerald-600': type === 'success' }"
+      :class="{ 'bg-blue-600': type === 'info', 'bg-rose-600': type === 'error', 'bg-yellow-600': type === 'warning', 'bg-emerald-600': type === 'success' }"
       class="rounded-md p-4 text-white">
     <div class="flex">
       <div class="flex-shrink-0">
