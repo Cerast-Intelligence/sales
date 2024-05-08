@@ -371,6 +371,12 @@ onMounted(() => {
   }
 })
 
+onBeforeUnmount(() => {
+  if (ws) {
+    ws.close()
+  }
+})
+
 const activeFilters = ref([])
 
 const mobileFiltersOpen = ref(false)
