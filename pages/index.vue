@@ -369,7 +369,7 @@ useHead({
       id: 'fsc-api',
       src: 'https://sbl.onfastspring.com/sbl/1.0.1/fastspring-builder.min.js',
       type: 'text/javascript',
-      'data-storefront': 'cerastintel.test.onfastspring.com/popup-cerastintel'
+      'data-storefront': 'cerastintel.onfastspring.com/popup-cerastintel'
     }
   ],
 })
