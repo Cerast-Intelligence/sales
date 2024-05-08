@@ -85,7 +85,8 @@
           </button>
         </div>
         <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Find security issues with ease</h1>
-        <p class="mt-6 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We will help
+        <p class="mt-6 mr-20 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We will
+          help
           you! Just open the flood gates and we will throw easy targets at you which you can directly convert to bug
           bounty</p>
         <div class="mt-10 flex items-center gap-x-6">
@@ -95,32 +96,34 @@
           </NuxtLink>
         </div>
       </div>
-      <div class="mt-20 flex flex-col justify-center sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
-        <div class="shadow-lg md:rounded-3xl">
-          <div class="bg-rose-600 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
-            <div class="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
-              <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none">
-                <div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
-                  <div class="flex items-center bg-gray-800/40 ring-1 ring-white/5">
-                    <div class="-mb-px flex text-sm font-medium leading-6 text-gray-400">
-                      <div class="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">Live WebSocket Stream <span class="w-2 h-2 bg-green-600 absolute animate-pulse rounded-full"/></div>
-                    </div>
-                    <button @click="disconnect()" class="text-white hover:text-rose-600 absolute right-2">
-                      <PauseCircleIcon class="h-8 w-8" />
-                    </button>
-                  </div>
-                  <div class="px-6 pb-14 pt-6 text-white">
-                    <p class="font-bold">
-                      These events are live and contain redacted data. <br>
-                      The goal is to give you a feeling about what you get.
-                    </p>
-                    <p v-for="event in events" :key="event.id"><time class="text-gray-400" :datetime="event.datetime">{{ event.time }}</time> > {{ event.category }} {{ event.path }} on {{ event.domain }}</p>
-                  </div>
+
+      <div class="mt-20 hidden lg:flex flex-col justify-center sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
+        <div class="md:rounded-3xl [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))] relative">
+          <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none">
+            <div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
+              <div class="flex items-center bg-gray-800/40 ring-1 ring-white/5">
+                <div class="-mb-px flex text-sm font-medium leading-6 text-gray-400">
+                  <div class="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">
+                    Live WebSocket Stream <span class="w-2 h-2 bg-green-600 absolute animate-pulse rounded-full"/></div>
                 </div>
+                <button @click="disconnect()" class="text-white hover:text-rose-600 absolute right-2">
+                  <PauseCircleIcon class="h-8 w-8"/>
+                </button>
               </div>
-              <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 md:rounded-3xl" aria-hidden="true" />
+              <div class="px-6 pb-14 pt-6 text-white">
+                <p class="font-bold">
+                  These events are live and contain redacted data. <br>
+                  The goal is to give you a feeling about what you get.
+                </p>
+                <p v-for="event in events" :key="event.id">
+                  <time class="text-gray-400" :datetime="event.datetime">{{ event.time }}</time>
+                  > {{ event.category }} {{ event.path }} on {{ event.domain }}
+                </p>
+              </div>
             </div>
           </div>
+          <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 md:rounded-3xl"
+               aria-hidden="true"/>
         </div>
       </div>
     </div>
@@ -191,9 +194,12 @@
                   </li>
                 </ul>
               </div>
-              <button :data-fsc-item-path-value="tier.itemPath" data-fsc-action="Add, Checkout" :aria-describedby="tier.id"
-                 class="mt-8 block rounded-md bg-rose-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">Get
-                started today</button>
+              <button :data-fsc-item-path-value="tier.itemPath" data-fsc-action="Add, Checkout"
+                      :aria-describedby="tier.id"
+                      class="mt-8 block rounded-md bg-rose-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">
+                Get
+                started today
+              </button>
             </div>
             <div
                 class="flex bg-white/80 flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-3 lg:flex-row lg:items-center">
@@ -291,7 +297,7 @@ onMounted(() => {
 
   setTimeout(() => {
     ws.close()
-  }, 10*60*1000)
+  }, 10 * 60 * 1000)
 
 
   ws.onmessage = (event) => {
@@ -299,7 +305,7 @@ onMounted(() => {
 
     const messageJson = JSON.parse(message)
 
-    if(events.value.length > 10) {
+    if (events.value.length > 10) {
       events.value.pop()
     }
 
