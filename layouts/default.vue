@@ -148,8 +148,8 @@ const footerNavigation = {
   ],
   billing: [
     {name: 'Refund Policy', href: '/refund'},
-    {name: 'Manage subscription', href: 'https://fastspring.com/'},
-    {name: 'Cancel subscription', href: 'https://fastspring.com/'},
+    {name: 'Manage subscription', href: 'https://cerastintel.onfastspring.com/account'},
+    {name: 'Cancel subscription', href: 'https://cerastintel.onfastspring.com/account'},
   ],
   social: [
     {
