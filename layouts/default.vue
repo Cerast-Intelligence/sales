@@ -5,7 +5,7 @@
         <div class="flex lg:flex-1">
           <NuxtLink to="/" class="-m-1.5 p-1.5">
             <span class="sr-only">Cerast Intelligence</span>
-            <NuxtImg class="h-12 w-auto" src="/images/logo.webp" alt=""/>
+            <NuxtImg class="h-12 w-auto" src="/images/snek.webp" alt=""/>
           </NuxtLink>
         </div>
         <div class="flex lg:hidden">
@@ -83,28 +83,28 @@
           </div>
           <div class="mt-16 grid grid-cols-3 gap-8 xl:col-span-2 xl:mt-0">
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-white">Developer</h3>
+              <h3 class="text-sm font-semibold leading-6 text-gray-300">Developer</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in footerNavigation.developer" :key="item.name">
-                  <a :href="item.href" class="text-sm leading-6 text-gray-300 hover:text-white">{{ item.name }}</a>
+                  <a :href="item.href" class="text-sm leading-6 text-gray-400 hover:text-gray-300">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
 
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-white">Billing</h3>
+              <h3 class="text-sm font-semibold leading-6 text-gray-300">Billing</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in footerNavigation.billing" :key="item.name">
-                  <a :href="item.href" class="text-sm leading-6 text-gray-300 hover:text-white">{{ item.name }}</a>
+                  <a :href="item.href" class="text-sm leading-6 text-gray-400 hover:text-gray-300">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
 
             <div class="mt-10 md:mt-0">
-              <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
+              <h3 class="text-sm font-semibold leading-6 text-gray-300">Legal</h3>
               <ul role="list" class="mt-6 space-y-4">
                 <li v-for="item in footerNavigation.legal" :key="item.name">
-                  <a :href="item.href" class="text-sm leading-6 text-gray-300 hover:text-white">{{ item.name }}</a>
+                  <a :href="item.href" class="text-sm leading-6 text-gray-400 hover:text-gray-300">{{ item.name }}</a>
                 </li>
               </ul>
             </div>
@@ -131,9 +131,10 @@ useHead({
 const mobileMenuOpen = ref(false)
 
 const navigation = [
-  {name: 'Subscribe', href: '/#subscribe'},
+  {name: 'Pricing', href: '/#subscribe'},
   {name: 'FAQ', href: '/#faq'},
-  {name: 'Pricing', href: '/#subscribe'}
+  {name: 'Documentation', href: '/documentation'},
+  {name: 'Changelogs', href: '/changelog'},
 ]
 
 const footerNavigation = {

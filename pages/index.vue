@@ -1,54 +1,4 @@
 <template>
-  <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="relative z-10" @close="open = false">
-      <TransitionChild as="template" enter="ease-out duration-300" enter-from="opacity-0" enter-to="opacity-100"
-                       leave="ease-in duration-200" leave-from="opacity-100" leave-to="opacity-0">
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
-      </TransitionChild>
-
-      <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
-        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <TransitionChild as="template" enter="ease-out duration-300"
-                           enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                           enter-to="opacity-100 translate-y-0 sm:scale-100" leave="ease-in duration-200"
-                           leave-from="opacity-100 translate-y-0 sm:scale-100"
-                           leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-            <DialogPanel
-                class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-              <div>
-                <div class="mt-3 text-left sm:mt-5">
-                  <DialogTitle as="h3" class=" text-center text-base font-semibold leading-6 text-gray-900">Version
-                    1.0
-                  </DialogTitle>
-                  <div class="mt-2">
-                    <ul class="text-sm text-gray-500">
-                      <li>Detection of exposed .git</li>
-                      <li>Detection of exposed .env, config.php, config.xml</li>
-                      <li>Detection of exposed backups and database files</li>
-                      <li>Detection of exposed ssh-keys</li>
-                      <li>Detection of outdated Wordpress</li>
-                      <li>Detection of outdated Webserver (Apache, Tomcat, IIS)</li>
-                      <li>Detection of outdated SSH-Server</li>
-                      <li>Detection of outdated PHPMyAdmin</li>
-                      <li>Detection of Wordpress in setup</li>
-                      <li>Detection of old webpages (no changes since 2018)</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="mt-5 sm:mt-6">
-                <button type="button"
-                        class="inline-flex w-full justify-center rounded-md bg-rose-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600"
-                        @click="open = false">close
-                </button>
-              </div>
-            </DialogPanel>
-          </TransitionChild>
-        </div>
-      </div>
-    </Dialog>
-  </TransitionRoot>
-
   <div class="relative isolate overflow-hidden bg-gray-900">
     <svg
         class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
@@ -75,14 +25,14 @@
       <div class="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
         <NuxtImg lazy class="h-32" src="/images/logo.webp" alt="Cerast Intelligence"/>
         <div class="mt-24 sm:mt-32 lg:mt-16">
-          <button class="inline-flex items-center space-x-6" @click="open = true">
+          <NuxtLink to="/changelog/detections-1-0-0" class="inline-flex items-center space-x-6">
             <span
                 class="rounded-full bg-rose-500/10 px-3 py-1 text-sm font-semibold leading-6 text-rose-400 ring-1 ring-inset ring-rose-500/20">What's new</span>
             <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
               <span>New detections</span>
               <ChevronRightIcon class="h-5 w-5 text-gray-500" aria-hidden="true"/>
             </span>
-          </button>
+          </NuxtLink>
         </div>
         <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Find security issues with ease</h1>
         <p class="mt-6 mr-20 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We will
@@ -97,7 +47,8 @@
         </div>
       </div>
 
-      <div class="mt-20 hidden lg:flex flex-col justify-center sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
+      <div
+          class="mt-20 hidden lg:flex flex-col justify-center sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
         <div class="md:rounded-3xl [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))] relative">
           <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none">
             <div class="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
@@ -153,24 +104,30 @@
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
         <h2 class="text-base font-semibold leading-7 text-rose-600">Pricing</h2>
-        <p class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">The right price for you, whoever you are</p>
+        <p class="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">The right price for you, whoever you
+          are</p>
       </div>
       <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
         Choose how long you want to subscribe and get access to our datastream.
         <br> Get 2 free trial days and cancel anytime.
       </p>
       <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        <div v-for="tier in tiers" :key="tier.id" :class="[tier.mostPopular ? 'bg-white/5 ring-2 ring-rose-600' : 'ring-1 ring-white/10', 'rounded-3xl p-8 xl:p-10']">
+        <div v-for="tier in tiers" :key="tier.id"
+             :class="[tier.mostPopular ? 'bg-white/5 ring-2 ring-rose-600' : 'ring-1 ring-white/10', 'rounded-3xl p-8 xl:p-10']">
           <div class="flex items-center justify-between gap-x-4">
             <h3 :id="tier.id" class="text-lg font-semibold leading-8 text-white">{{ tier.name }}</h3>
-            <p v-if="tier.mostPopular" class="rounded-full bg-rose-600 px-2.5 py-1 text-xs font-semibold leading-5 text-white">Most value</p>
+            <p v-if="tier.mostPopular"
+               class="rounded-full bg-rose-600 px-2.5 py-1 text-xs font-semibold leading-5 text-white">Most value</p>
           </div>
           <p class="text-sm leading-6 text-gray-500">Starting at {{ tier.price }} / month excl. VAT</p>
           <p class="mt-4 text-sm leading-6 text-gray-300">{{ tier.description }}</p>
-          <button :data-fsc-item-path-value="tier.id" data-fsc-action="Add, Checkout" :aria-describedby="tier.id" :class="[tier.mostPopular ? 'bg-rose-600 text-white shadow-sm hover:bg-rose-500 focus-visible:outline-rose-600' : 'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2']">Subscribe now</button>
+          <button :data-fsc-item-path-value="tier.id" data-fsc-action="Add, Checkout" :aria-describedby="tier.id"
+                  :class="[tier.mostPopular ? 'bg-rose-600 text-white shadow-sm hover:bg-rose-500 focus-visible:outline-rose-600' : 'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2']">
+            Subscribe now
+          </button>
           <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10">
             <li v-for="feature in tier.features" :key="feature" class="flex gap-x-3">
-              <CheckIcon class="h-6 w-5 flex-none text-white" aria-hidden="true" />
+              <CheckIcon class="h-6 w-5 flex-none text-white" aria-hidden="true"/>
               {{ feature }}
             </li>
           </ul>
@@ -242,7 +199,7 @@ import {ref} from 'vue'
 import {CheckIcon, MinusSmallIcon, PlusSmallIcon, PauseCircleIcon} from '@heroicons/vue/20/solid'
 import {Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot} from '@headlessui/vue'
 import {CogIcon} from "@heroicons/vue/24/outline/index.js";
-import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
+import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue'
 
 const open = ref(false)
 
