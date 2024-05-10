@@ -307,7 +307,7 @@ const tiers = [
   },
   {
     name: '6 Months',
-    id: '6month',
+    id: '6months',
     price: '$33',
     description: 'Save ~33% compared to the monthly plan.',
     features: [
@@ -321,7 +321,7 @@ const tiers = [
   },
   {
     name: '3 Months',
-    id: '3month',
+    id: '3months',
     price: '$39',
     description: 'Save ~20% compared to the monthly plan.',
     features: [
