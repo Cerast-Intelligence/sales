@@ -149,7 +149,7 @@
   </div>
 
 
-  <div class="bg-gray-900 py-16 sm:py-24">
+  <div id="subscribe" class="bg-gray-900 py-16 sm:py-24">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-4xl text-center">
         <h2 class="text-base font-semibold leading-7 text-rose-600">Pricing</h2>
