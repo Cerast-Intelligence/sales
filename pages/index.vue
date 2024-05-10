@@ -182,7 +182,7 @@
           </div>
           <p class="text-sm leading-6 text-gray-500">Starting at {{ tier.price }} / month excl. VAT</p>
           <p class="mt-4 text-sm leading-6 text-gray-300">{{ tier.description }}</p>
-          <button :data-fsc-item-path-value="tier.id" :aria-describedby="tier.id" :class="[tier.mostPopular ? 'bg-rose-600 text-white shadow-sm hover:bg-rose-500 focus-visible:outline-rose-600' : 'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2']">Subscribe now</button>
+          <button :data-fsc-item-path-value="tier.id" data-fsc-action="Add, Checkout" :aria-describedby="tier.id" :class="[tier.mostPopular ? 'bg-rose-600 text-white shadow-sm hover:bg-rose-500 focus-visible:outline-rose-600' : 'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2']">Subscribe now</button>
           <ul role="list" class="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10">
             <li v-for="feature in tier.features" :key="feature" class="flex gap-x-3">
               <CheckIcon class="h-6 w-5 flex-none text-white" aria-hidden="true" />
