@@ -249,7 +249,7 @@ const tiers = [
   {
     name: '1 Month',
     id: '1month',
-    price: '$49',
+    price: '$12.49',
     description: 'Get to know our service in a shorter term.',
     features: [
       '2 Days free trial',
@@ -262,8 +262,8 @@ const tiers = [
   {
     name: '6 Months',
     id: '6months',
-    price: '$33',
-    description: 'Save ~33% compared to the monthly plan.',
+    price: '$54.99',
+    description: 'Save ~30% compared to the monthly plan.',
     features: [
       '2 Days free trial',
       'unlimited hits',
@@ -276,7 +276,7 @@ const tiers = [
   {
     name: '3 Months',
     id: '3months',
-    price: '$39',
+    price: '$29.95',
     description: 'Save ~20% compared to the monthly plan.',
     features: [
       '2 Days free trial',
