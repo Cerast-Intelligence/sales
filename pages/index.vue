@@ -34,11 +34,8 @@
             </span>
           </NuxtLink>
         </div>
-        <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Find security issues with ease</h1>
-        <p class="mt-6 mr-20 text-lg leading-8 text-gray-300">You're a bug hunter searching for easy bounties? We will
-          help
-          you! Just open the flood gates and we will throw easy targets at you which you can directly convert to bug
-          bounty</p>
+        <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Bug Bounty on a Sushi Belt - Fast & Fresh 24/7</h1>
+        <p class="mt-6 mr-20 text-lg leading-8 text-gray-300">Sit back and watch as the easiest bug bounties roll directly to you on a virtual sushi belt, each one pre-verified and ready for the taking. Simply claim your bounty or dive deeper to uncover more vulnerabilities. </p>
         <div class="mt-10 flex items-center gap-x-6">
           <NuxtLink to="#subscribe"
                     class="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400">
@@ -55,7 +52,7 @@
               <div class="flex items-center bg-gray-800/40 ring-1 ring-white/5">
                 <div class="-mb-px flex text-sm font-medium leading-6 text-gray-400">
                   <div class="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">
-                    Live WebSocket Stream <span class="w-2 h-2 bg-green-600 absolute animate-pulse rounded-full"/></div>
+                    Live Data Stream <span class="w-2 h-2 bg-green-600 absolute animate-pulse rounded-full"/></div>
                 </div>
                 <button @click="disconnect()" class="text-white hover:text-rose-600 absolute right-2">
                   <PauseCircleIcon class="h-8 w-8"/>
@@ -63,8 +60,8 @@
               </div>
               <div class="px-6 pb-14 pt-6 text-white">
                 <p class="font-bold">
-                  These events are live and contain redacted data. <br>
-                  The goal is to give you a feeling about what you get.
+                  These events are live, but are redacted. <br>
+                  Get acces <a href="/#subscribe" class="text-rose-600">now</a> to see unredacted data. 
                 </p>
                 <p v-for="event in events" :key="event.id">
                   <time class="text-gray-400" :datetime="event.datetime">{{ event.time }}</time>
