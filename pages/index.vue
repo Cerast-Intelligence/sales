@@ -255,7 +255,6 @@ const tiers = [
       '2 Days free trial',
       'unlimited hits',
       'easy access via monitoring page',
-      '48-hour support response time',
     ],
     mostPopular: false,
   },
