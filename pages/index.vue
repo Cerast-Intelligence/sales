@@ -305,6 +305,11 @@ useHead({
 
 
 const faqs = [
+{
+    question: "Are there student, NGO... discounts?",
+    answer:
+        "If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our service. Contact us!",
+  },
   {
     question: "Why should I buy your product?",
     answer:
@@ -330,11 +335,7 @@ const faqs = [
     answer:
         "Please contact us at api@cerast-intelligence.com.",
   },
-  {
-    question: "Are there student, NGO... discounts?",
-    answer:
-        "If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our service. Contact us!",
-  },
+ 
   {
     question: "If I buy 6 months, how does the discount code work?",
     answer:
