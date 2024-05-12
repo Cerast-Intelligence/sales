@@ -50,7 +50,7 @@ const pages = [
   <div class="bg-gray-900 px-6 py-4">
     <div class="mx-auto max-w-7xl text-base leading-7 text-gray-300">
       <p class="text-base font-semibold leading-7 text-rose-600">Introducing</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">JavaScript for Beginners</h1>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">Launchday</h1>
       <p class="mt-6 text-xl leading-8">Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.</p>
       <div class="mt-10 max-w-2xl">
         <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>

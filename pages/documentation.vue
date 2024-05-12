@@ -2,37 +2,63 @@
   <div class="bg-gray-900 px-6 py-32 lg:px-8">
     <div class="mx-auto max-w-4xl text-base leading-7 text-gray-300">
       <p class="text-base font-semibold leading-7 text-rose-600">Introducing</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">JavaScript for Beginners</h1>
-      <p class="mt-6 text-xl leading-8">Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.</p>
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">How to use</h1>
+      <p class="mt-6 text-xl leading-8">This documentation provides detailed instructions on how to use the monitoring tool on our website. This guide is intended for users who need to monitor and filter data streams, ensuring they can effectively manage the information.</p>
       <div class="mt-10 max-w-2xl">
-        <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
         <ul role="list" class="mt-8 max-w-xl space-y-8 text-gray-400">
           <li class="flex gap-x-3">
             <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Data types.</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</span>
+            <span><strong class="font-semibold text-gray-300">Access the Monitoring Page.</strong></span>
           </li>
           <li class="flex gap-x-3">
             <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Loops.</strong> Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</span>
+            <span><strong class="font-semibold text-gray-300">Inserting Your Token.</strong> </span>
           </li>
           <li class="flex gap-x-3">
             <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Events.</strong> Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</span>
+            <span><strong class="font-semibold text-gray-300">Filtering the Results.</strong> </span>
+          </li>
+          <li class="flex gap-x-3">
+            <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
+            <span><strong class="font-semibold text-gray-300">Troubleshooting.</strong> </span>
           </li>
         </ul>
-        <p class="mt-8">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.</p>
-        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-200">From beginner to expert in 3 hours</h2>
-        <p class="mt-6">Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.</p>
-        <figure class="mt-10 border-l border-rose-600 pl-9">
-          <blockquote class="font-semibold text-gray-200">
-            <p>“Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim tristique.”</p>
-          </blockquote>
-          <figcaption class="mt-6 flex gap-x-4">
-            <img class="h-6 w-6 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-            <div class="text-sm leading-6"><strong class="font-semibold text-gray-100">Maria Hill</strong> – Marketing Manager</div>
-          </figcaption>
-        </figure>
-        <p class="mt-10">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>
+
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-200">Access the Monitoring Page</h2>
+        <p class="mt-6">To start using the monitoring functionalities, you must navigate to the Monitor page on our website.
+          <ul role="list" class="mt-8 max-w-xl space-y-2 text-gray-400">
+            <li class="flex gap-x-3">1. Open your preferred web browser.</li>
+            <li class="flex gap-x-3">2. Enter the URL of our homepage.</li>
+              <li class="flex gap-x-3">3. Navigate to the Monitor page either through the menu or by appending /monitor to the base URL.</li>
+          </ul>  
+        </p>
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-200">Inserting Your Token</h2>
+        <p class="mt-6">To access the personalized data stream, a valid token must be inserted.
+          <ul role="list" class="mt-8 max-w-xl space-y-2 text-gray-400">
+            <li class="flex gap-x-3">1. On the Monitor page, locate the "Your API Key" field..</li>
+            <li class="flex gap-x-3">2. Enter your personal access token. Ensure there are no extra spaces or characters to avoid errors.</li>
+            <li class="flex gap-x-3">3. Submit the token by clicking the "Start" button.</li>
+            <li class="flex gap-x-3">4. Wait for the system to validate your token. Once validated, the data stream will begin to populate.</li>
+          </ul>  
+        </p>
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-200">Filtering the Results</h2>
+        <p class="mt-6">Once the data stream is active, you can apply filters to narrow down the results according to your needs. This feature is useful for focusing on specific data points within a larger stream.
+          <ul role="list" class="mt-8 max-w-xl space-y-2 text-gray-400">
+            <li class="flex gap-x-3">1. Find the "Filter Options" area on the Monitor page</li>
+            <li class="flex gap-x-3">2. Select or enter the criteria for filtering the data.</li>
+            <li class="flex gap-x-3">3. The filters get auto applied.</li>
+            <li class="flex gap-x-3">4. The Stream will refresh, and the filtered results will be displayed.</li>
+          </ul>  
+        </p>
+        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-200">Troubleshooting</h2>
+        <p class="mt-6">If you encounter issues while using the Monitor page, consider the following troubleshooting steps:
+          <ul role="list" class="mt-8 max-w-xl space-y-2 text-gray-400">
+            <li class="flex gap-x-3">Ensure your token is entered correctly without any typos</li>
+            <li class="flex gap-x-3">Check your internet connection to ensure continuous data streaming</li>
+            <li class="flex gap-x-3">Clear your browser cache if the page isn't loading or updating properly.</li>
+          </ul>  
+        </p>
+      
       </div>
     </div>
   </div>
