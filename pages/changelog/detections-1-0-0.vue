@@ -21,8 +21,8 @@ const pages = [
       <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#db2777] to-[#831843] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
     </div>
     <div class="mx-auto max-w-2xl text-center">
-      <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Launchday</h2>
-      <p class="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+      <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Detections 1.0.0</h2>
+      <p class="mt-6 text-lg leading-8 text-gray-300">We are happy to publish our first set of Detections.</p>
     </div>
   </div>
 
@@ -47,43 +47,41 @@ const pages = [
     </ol>
   </nav>
 
-  <div class="bg-gray-900 px-6 py-4">
-    <div class="mx-auto max-w-7xl text-base leading-7 text-gray-300">
-      <p class="text-base font-semibold leading-7 text-rose-600">Introducing</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">JavaScript for Beginners</h1>
-      <p class="mt-6 text-xl leading-8">Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.</p>
-      <div class="mt-10 max-w-2xl">
-        <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
-        <ul role="list" class="mt-8 max-w-xl space-y-8 text-gray-400">
-          <li class="flex gap-x-3">
-            <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Data types.</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</span>
-          </li>
-          <li class="flex gap-x-3">
-            <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Loops.</strong> Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</span>
-          </li>
-          <li class="flex gap-x-3">
-            <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Events.</strong> Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</span>
-          </li>
-        </ul>
-        <p class="mt-8">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.</p>
-        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-200">From beginner to expert in 3 hours</h2>
-        <p class="mt-6">Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.</p>
-        <figure class="mt-10 border-l border-rose-600 pl-9">
-          <blockquote class="font-semibold text-gray-200">
-            <p>“Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim tristique.”</p>
-          </blockquote>
-          <figcaption class="mt-6 flex gap-x-4">
-            <img class="h-6 w-6 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-            <div class="text-sm leading-6"><strong class="font-semibold text-gray-100">Maria Hill</strong> – Marketing Manager</div>
-          </figcaption>
-        </figure>
-        <p class="mt-10">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>
-      </div>
+  <div class="container mx-auto px-4 py-12 text-white">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold text-rose-600">New Detection Capabilities in Our Monitoring Tools</h1>
+            <p class="mt-4 text-lg">We're excited to announce a significant upgrade to our suite of monitoring tools designed to enhance the security and integrity of your digital assets. Our latest rollout includes new checks that encompass a wide range of file types and configurations, aimed at identifying potential vulnerabilities before they can be exploited.</p>
+            
+            <h2 class="mt-8 text-2xl text-white font-bold">Enhanced Configuration File Checks</h2>
+            <p>Configuration files are often targeted by attackers due to their sensitive content and critical role in system operations. Our new set of checks includes:</p>
+            <ul class="list-disc pl-5 mt-2">
+                <li><strong>YAML and YML Files:</strong> Monitoring `/config.yml` and `/config.yaml` files, ensuring they do not exceed 500 KB to prevent bloating and potential manipulation.</li>
+                <li><strong>PHP Configuration Files:</strong> The `/config.php` files, often containing sensitive PHP settings, are now checked for specific content markers , capping at 500 KB.</li>
+                <li><strong>Web and Database Configuration:</strong> High-impact checks for `/web.config` and SQL dump files like `/dump.sql`, `/backup.sql`, and `/database.sql` to monitor SQL commands and database directives within a 5 MB size limit.</li>
+                <li><strong>WordPress Configuration:</strong> Reinforced monitoring of WordPress configuration and setup files, including `wp-config.php` and `wp-admin/setup-config.php`.</li>
+            </ul>
+
+            <h2 class="mt-8 text-2xl text-white font-bold">Database Integrity and Security</h2>
+            <p>Maintaining the integrity of database backups and configurations is crucial for data security. Our enhanced checks include:</p>
+            <ul class="list-disc pl-5 mt-2">
+                <li><strong>SQL Content Monitoring:</strong> Scrutinizing SQL dump files for potential exposures of structure and data insertion commands.</li>
+            </ul>
+
+            <h2 class="mt-8 text-2xl text-white font-bold">Source Code and Version Control</h2>
+            <p>Source code and version control systems can be avenues for information leaks if not properly secured. To address this, we've added:</p>
+            <ul class="list-disc pl-5 mt-2">
+                <li><strong>Archive Files and Version Control Systems:</strong> Checks on archive files such as `/backup.zip` and `/backup.tar.gz`, along with Git HEAD files in `/.git/HEAD`.</li>
+            </ul>
+
+            <h2 class="mt-8 text-2xl text-white font-bold">Sensitive Credential Protections</h2>
+            <p>Credentials stored in system files are a prime target for cyber threats. Our system now includes checks for:</p>
+            <ul class="list-disc pl-5 mt-2">
+                <li><strong>SSH Private Keys:</strong> Files such as `/.ssh/id_ed25519`, `/.ssh/id_ecdsa`, and `/.ssh/id_rsa` are monitored closely to ensure they contain private keys and do not exceed 50 KB.</li>
+            </ul>
+
+            <p class="mt-8">This rollout reflects our commitment to providing robust, comprehensive monitoring solutions that safeguard your digital infrastructure against evolving security threats. By continuously expanding our detection capabilities, we ensure that our tools remain effective in the dynamic landscape of cybersecurity threats.</p>
+        </div>
     </div>
-  </div>
 
   <div class="relative isolate overflow-hidden bg-gray-900">
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">

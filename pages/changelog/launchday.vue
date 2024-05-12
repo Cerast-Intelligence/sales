@@ -47,43 +47,33 @@ const pages = [
     </ol>
   </nav>
 
-  <div class="bg-gray-900 px-6 py-4">
-    <div class="mx-auto max-w-7xl text-base leading-7 text-gray-300">
-      <p class="text-base font-semibold leading-7 text-rose-600">Introducing</p>
-      <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">Launchday</h1>
-      <p class="mt-6 text-xl leading-8">Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget. Eleifend egestas fringilla sapien.</p>
-      <div class="mt-10 max-w-2xl">
-        <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id.</p>
-        <ul role="list" class="mt-8 max-w-xl space-y-8 text-gray-400">
-          <li class="flex gap-x-3">
-            <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Data types.</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</span>
-          </li>
-          <li class="flex gap-x-3">
-            <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Loops.</strong> Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.</span>
-          </li>
-          <li class="flex gap-x-3">
-            <CheckCircleIcon class="mt-1 h-5 w-5 flex-none text-rose-600" aria-hidden="true" />
-            <span><strong class="font-semibold text-gray-300">Events.</strong> Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</span>
-          </li>
-        </ul>
-        <p class="mt-8">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.</p>
-        <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-200">From beginner to expert in 3 hours</h2>
-        <p class="mt-6">Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.</p>
-        <figure class="mt-10 border-l border-rose-600 pl-9">
-          <blockquote class="font-semibold text-gray-200">
-            <p>“Vel ultricies morbi odio facilisi ultrices accumsan donec lacus purus. Lectus nibh ullamcorper ac dictum justo in euismod. Risus aenean ut elit massa. In amet aliquet eget cras. Sem volutpat enim tristique.”</p>
-          </blockquote>
-          <figcaption class="mt-6 flex gap-x-4">
-            <img class="h-6 w-6 flex-none rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-            <div class="text-sm leading-6"><strong class="font-semibold text-gray-100">Maria Hill</strong> – Marketing Manager</div>
-          </figcaption>
-        </figure>
-        <p class="mt-10">Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque erat velit.</p>
-      </div>
+  <div class="container mx-auto px-4 py-12 text-white">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-3xl font-bold text-rose-600">Emerging from Stealth: Our Journey Begins</h1>
+            <p class="mt-4 text-lg">After a period of dedicated development and strategic planning, we are excited to announce that our team is beginning to transition out of stealth mode. This marks a new chapter in our journey, where we not only unveil our innovative solutions but also start to engage actively with potential customers and the wider community.</p>
+
+            <div class="bg-gray-800 p-6 mt-6 rounded-lg shadow-lg">
+                <h2 class="text-xl text-white font-bold">Why We Are Here</h2>
+                <p class="mt-2">Our mission is to deliver cutting-edge technological solutions that address key pain points in our industry. By stepping out of the shadows, we are inviting early adopters to be part of a transformative experience, helping us refine our offerings through their valuable feedback.</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 mt-6 rounded-lg shadow-lg">
+                <h2 class="text-xl text-white font-bold">Seeking First Customers and Feedback</h2>
+                <p class="mt-2">As we introduce our product to the market, our initial focus is to build strong relationships with our first users. Your insights and experiences are crucial to our iterative process, enabling us to tailor our development to meet real-world needs and expectations.</p>
+            </div>
+
+            <div class="bg-gray-800 p-6 mt-6 rounded-lg shadow-lg">
+                <h2 class="text-xl text-white font-bold">Join Us on Our Journey</h2>
+                <p class="mt-2">We are looking forward to engaging with businesses, tech enthusiasts, and thought leaders who are eager to explore new technologies and innovations. Join us to be at the forefront of this exciting phase, as we promise transparency, commitment, and a drive towards excellence.</p>
+            </div>
+
+            <p class="mt-8">Your feedback is more than just valuable; it is essential to our growth and refinement. We encourage you to reach out, interact with our products, and let us know how we can better serve your needs. Together, let's shape the future of technology.</p>
+
+            <div class="mt-10 flex justify-center">
+                <a href="mailto:contact@cerast-intelligence.com" class="bg-rose-600 text-white font-bold py-2 px-4 rounded hover:bg-rose-700">Contact Us</a>
+            </div>
+        </div>
     </div>
-  </div>
 
   <div class="relative isolate overflow-hidden bg-gray-900">
     <div class="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
