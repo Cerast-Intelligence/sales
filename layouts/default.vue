@@ -134,7 +134,7 @@ const navigation = [
   {name: 'Pricing', href: '/#subscribe'},
   {name: 'FAQ', href: '/#faq'},
   {name: 'Documentation', href: '/#'},
-  {name: 'Changelogs', href: '/changelog'},
+  {name: 'Changelogs', href: '/#'},
 ]
 
 const footerNavigation = {
