@@ -133,7 +133,7 @@ const mobileMenuOpen = ref(false)
 const navigation = [
   {name: 'Pricing', href: '/#subscribe'},
   {name: 'FAQ', href: '/#faq'},
-  {name: 'Documentation', href: '/documentation'},
+  {name: 'Documentation', href: '/#'},
   {name: 'Changelogs', href: '/changelog'},
 ]
 
@@ -144,8 +144,8 @@ const footerNavigation = {
     {name: 'Terms', href: '/terms-of-service'},
   ],
   developer: [
-    {name: 'Documentation', href: '/documentation'},
-    {name: 'Changelog', href: '/changelog'},
+    {name: 'Documentation', href: '/#'},
+    {name: 'Changelog', href: '/#'},
   ],
   billing: [
     {name: 'Refund Policy', href: '/refund'},
