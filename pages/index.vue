@@ -107,7 +107,7 @@
       <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
         Choose how long you want to subscribe and get access to our datastream.
         <br> Get 2 free trial days and cancel anytime.
-        <br> If you experience problems during checkout reload the page please. We are aware of the issues that the "Subscribe now" does not work always
+        <br> If you encounter problems during checkout reload the page please. We are aware of the issue that the "Subscribe now" button does not always work
       </p>
       <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         <div v-for="tier in tiers" :key="tier.id"
