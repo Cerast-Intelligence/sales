@@ -61,7 +61,7 @@
               <div class="px-6 pb-14 pt-6 text-white">
                 <p class="font-bold">
                   These events are live, but are redacted. <br>
-                  Get acces <a href="/#subscribe" class="text-rose-600">now</a> to see unredacted data. 
+                  Get acces <a href="/#subscribe" class="text-rose-600">now</a> to see unredacted data.
                 </p>
                 <p v-for="event in events" :key="event.id">
                   <time class="text-gray-400" :datetime="event.datetime">{{ event.time }}</time>
@@ -106,7 +106,6 @@
       </div>
       <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
         Choose how long you want to subscribe and get access to our datastream.
-        <br> If you encounter problems during checkout reload the page please. We are aware of the issue that the "Subscribe now" button does not always work
       </p>
       <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         <div v-for="tier in tiers" :key="tier.id"
@@ -130,6 +129,29 @@
           </ul>
         </div>
       </div>
+
+      <div class="mx-auto mt-16 max-w-md rounded-3xl ring-1 ring-white/10 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+        <div class="p-8 sm:p-10 lg:flex-auto">
+          <p class="text-2xl font-bold tracking-tight text-gray-100">Standard Membership</p>
+          <p class="mt-6 text-base leading-7 text-gray-300">
+            Get access to our datastream for free. br
+            You will get 50% of the hits and access to low and medium severity hits.
+          </p>
+        </div>
+        <div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+          <div class="rounded-2xl bg-gray-50/5 py-10 text-center ring-1 ring-inset ring-gray-900/5 lg:flex lg:flex-col lg:justify-center lg:py-4">
+            <div class="mx-auto max-w-xs px-8">
+              <p class="text-base font-semibold text-gray-600">It's free, forever</p>
+              <p class="mt-6 flex items-baseline justify-center gap-x-2">
+                <span class="text-4xl font-bold tracking-tight text-gray-100">$0</span>
+                <span class="text-sm font-semibold leading-6 tracking-wide text-gray-300">/ month</span>
+              </p>
+              <button data-fsc-item-path-value="free" data-fsc-action="Add, Checkout" class="mt-10 block w-full rounded-md bg-rose-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">Get access</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -193,7 +215,7 @@
 import {ChevronRightIcon} from '@heroicons/vue/20/solid'
 import {Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/vue'
 import {ref} from 'vue'
-import {CheckIcon, MinusSmallIcon, PlusSmallIcon, PauseCircleIcon} from '@heroicons/vue/20/solid'
+import {CheckIcon, MinusSmallIcon, PlusSmallIcon, PauseCircleIcon, MinusCircleIcon, MinusIcon} from '@heroicons/vue/20/solid'
 import {Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot} from '@headlessui/vue'
 import {CogIcon} from "@heroicons/vue/24/outline/index.js";
 import {RadioGroup, RadioGroupLabel, RadioGroupOption} from '@headlessui/vue'
@@ -219,6 +241,8 @@ onMounted(() => {
   ws.onmessage = (event) => {
     const message = event.data
 
+    if(message === 'SUCCESS WS') return;
+
     const messageJson = JSON.parse(message)
 
     if (events.value.length > 10) {
@@ -235,8 +259,18 @@ onMounted(() => {
       icon: CogIcon,
       iconBackground: 'bg-green-400',
     })
-
   }
+
+  useHead({
+    script: [
+      {
+        id: 'fsc-api',
+        src: 'https://sbl.onfastspring.com/sbl/1.0.1/fastspring-builder.min.js',
+        type: 'text/javascript',
+        'data-storefront': 'cerastintel.onfastspring.com/popup-cerastintel'
+      }
+    ],
+  })
 })
 
 const disconnect = () => {
@@ -290,15 +324,8 @@ useHead({
     name: 'description',
     content: 'Cerast Intelligence delivers a comprehensive Datastream designed to identify prime targets for bug bounty and security research efforts. Our service highlights vulnerable assets, including exposed .git directories, .env files, and outdated software, helping you secure potential weaknesses effectively'
   },
-  script: [
-    {
-      id: 'fsc-api',
-      src: 'https://sbl.onfastspring.com/sbl/1.0.1/fastspring-builder.min.js',
-      type: 'text/javascript',
-      'data-storefront': 'cerastintel.onfastspring.com/popup-cerastintel'
-    }
-  ],
 })
+
 
 
 const faqs = [
@@ -332,7 +359,7 @@ const faqs = [
     answer:
         "Please contact us at api@cerast-intelligence.com.",
   },
- 
+
   {
     question: "If I buy 6 months, how does the discount code work?",
     answer:
