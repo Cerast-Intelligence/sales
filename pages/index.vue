@@ -106,7 +106,6 @@
       </div>
       <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-300">
         Choose how long you want to subscribe and get access to our datastream.
-        <br> Get 2 free trial days and cancel anytime.
         <br> If you encounter problems during checkout reload the page please. We are aware of the issue that the "Subscribe now" button does not always work
       </p>
       <div class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
@@ -253,7 +252,6 @@ const tiers = [
     price: '$14.49',
     description: 'Get to know our service in a shorter term.',
     features: [
-      '2 Days free trial',
       'unlimited hits',
       'easy access via monitoring page',
     ],
@@ -265,7 +263,6 @@ const tiers = [
     price: '$9.99',
     description: 'Save ~30% compared to the monthly plan.',
     features: [
-      '2 Days free trial',
       'unlimited hits',
       'easy access via monitoring page',
       '48-hour support response time',
@@ -279,7 +276,6 @@ const tiers = [
     price: '$12.49',
     description: 'Save ~20% compared to the monthly plan.',
     features: [
-      '2 Days free trial',
       'unlimited hits',
       'easy access via monitoring page',
       '48-hour support response time',
