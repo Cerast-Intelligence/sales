@@ -130,6 +130,11 @@ useHead({
 
 const mobileMenuOpen = ref(false)
 
+const router = useRouter()
+router.afterEach(() => {
+  mobileMenuOpen.value = false
+})
+
 const navigation = [
   {name: 'Pricing', href: '/#subscribe'},
   {name: 'FAQ', href: '/#faq'},
