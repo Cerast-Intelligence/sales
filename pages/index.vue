@@ -388,7 +388,7 @@ const stats = [
 
 const checkout = (tier) => {
   window.fastspring.builder.add(tier)
-  window.fastspring.builder.viewCart()
+  window.fastspring.builder.checkout()
 
 }
 </script>
