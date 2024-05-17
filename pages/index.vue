@@ -117,7 +117,7 @@
           </div>
           <p class="text-sm leading-6 text-gray-500">Starting at {{ tier.price }} / month excl. VAT</p>
           <p class="mt-4 text-sm leading-6 text-gray-300">{{ tier.description }}</p>
-          <button :data-fsc-item-path-value="tier.id" data-fsc-action="Add, Checkout" :aria-describedby="tier.id"
+          <button @click="checkout(tier.id)" :aria-describedby="tier.id"
                   :class="[tier.mostPopular ? 'bg-rose-600 text-white shadow-sm hover:bg-rose-500 focus-visible:outline-rose-600' : 'bg-white/10 text-white hover:bg-white/20 focus-visible:outline-white', 'mt-6 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2']">
             Subscribe now
           </button>
@@ -146,7 +146,7 @@
                 <span class="text-4xl font-bold tracking-tight text-gray-100">$0</span>
                 <span class="text-sm font-semibold leading-6 tracking-wide text-gray-300">/ month</span>
               </p>
-              <button data-fsc-item-path-value="free" data-fsc-action="Add, Checkout" class="mt-10 block w-full rounded-md bg-rose-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">Get access</button>
+              <button @click="checkout('free')" class="mt-10 block w-full rounded-md bg-rose-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-600">Get access</button>
             </div>
           </div>
         </div>
@@ -385,4 +385,10 @@ const stats = [
   {id: 2, name: 'Fulfillment', value: '100% Automated'},
   {id: 4, name: 'Legal', value: '100%'},
 ]
+
+const checkout = (tier) => {
+  window.fastspring.builder.add(tier)
+  window.fastspring.builder.viewCart()
+
+}
 </script>
