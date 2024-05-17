@@ -66,7 +66,7 @@
       <div class="mx-auto max-w-7xl px-6 pb-8 lg:px-8">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <div class="space-y-8">
-            <NuxtImg lazy class="h-16" src="/images/logo.webp" alt="Cerast Intelligence"/>
+            <NuxtImg lazy class="h-16" src="/images/snek.webp" alt="Cerast Intelligence"/>
             <p class="text-sm leading-6 text-gray-300">
               Cerast Intelligence is a monitoring tool that helps you to keep track of public security issues.
             </p>

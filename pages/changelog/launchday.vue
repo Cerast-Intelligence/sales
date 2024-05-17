@@ -7,6 +7,16 @@ const pages = [
   { name: 'Changelog', href: '/changelog', current: false },
   { name: 'Launchday', href: '#', current: true },
 ]
+
+useHead({
+  title: 'Launchday | Cerast Intelligence',
+  meta: [
+    {
+      name: 'description',
+      content: 'Check out our launch announcement for Cerast Intelligence! We\'re excited to welcome you to our new website and share a special discount.',
+    },
+  ],
+})
 </script>
 
 <template>
@@ -26,7 +36,7 @@ const pages = [
     </div>
   </div>
 
-  <nav class="flex mx-auto max-w-7xl py-6 px-6" aria-label="Breadcrumb">
+  <nav class="mx-auto max-w-7xl py-6 px-6" aria-label="Breadcrumb">
     <ol role="list" class="flex items-center space-x-4">
       <li>
         <div>

@@ -7,6 +7,16 @@ const pages = [
   { name: 'Changelog', href: '/changelog', current: false },
   { name: 'Detections 1.0.0', href: '#', current: true },
 ]
+
+useHead({
+  title: 'Detections 1.0.0 | Cerast Intelligence',
+  meta: [
+    {
+      name: 'description',
+      content: 'Keep up with the latest updates to our products and services.',
+    },
+  ],
+})
 </script>
 
 <template>
