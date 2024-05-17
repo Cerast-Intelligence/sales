@@ -134,7 +134,7 @@
         <div class="p-8 sm:p-10 lg:flex-auto">
           <p class="text-2xl font-bold tracking-tight text-gray-100">Standard Membership</p>
           <p class="mt-6 text-base leading-7 text-gray-300">
-            Get access to our datastream for free. br
+            Get access to our datastream for free. <br>
             You will get 50% of the hits and access to low and medium severity hits.
           </p>
         </div>
