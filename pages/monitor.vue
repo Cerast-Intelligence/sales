@@ -23,7 +23,8 @@
             </button>
           </div>
           <p class="text-sm text-gray-500" v-if="apiKey">
-            <span @click="removeKeyFromLocalStorage()" class="underline cursor-pointer">Remove key from local storage</span>
+            <span @click="removeKeyFromLocalStorage()"
+                  class="underline cursor-pointer">Remove key from local storage</span>
           </p>
         </div>
         <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
@@ -57,9 +58,10 @@
   </div>
 
   <div v-if="notifications.length" class="relative mx-auto max-w-7xl px-6 lg:px-8">
-  <alert @close="closeNotification(id)" v-for="(notification, id) in notifications" :key="id" :type="notification.type" class="my-4 sm:my-8">
-    {{ notification.message }}
-  </alert>
+    <alert @close="closeNotification(id)" v-for="(notification, id) in notifications" :key="id"
+           :type="notification.type" class="my-4 sm:my-8">
+      {{ notification.message }}
+    </alert>
   </div>
 
   <div v-if="isConnected || timeline.length" class="bg-gray-900">
@@ -126,16 +128,30 @@
       </TransitionRoot>
 
       <main class="mx-auto max-w-2xl px-4 py-4 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
-        <div class="border-b border-gray-200 pb-10">
-          <h1 class="text-4xl font-bold tracking-tight text-white relative">
-            Data Stream
-            <span
-                :class="{ 'bg-green-600 animate-pulse': isConnected, 'bg-rose-600': !isConnected }"
-                class="absolute w-6 h-6 rounded-full top-[25%] ml-2"></span>
-          </h1>
-          <p class="mt-4 text-base text-gray-300">
-            Monitor the data stream and see what is happening in real time.
-          </p>
+        <div class="border-b border-gray-200 pb-10 flex justify-between items-center">
+          <div>
+            <h1 class="text-4xl font-bold tracking-tight text-white relative">
+              Data Stream
+              <span
+                  :class="{ 'bg-yellow-600 animate-pulse': isConnected && isPaused, 'bg-green-600 animate-pulse': isConnected && !isPaused, 'bg-rose-600': !isConnected }"
+                  class="absolute w-6 h-6 rounded-full top-[25%] ml-2"></span>
+            </h1>
+            <p class="mt-4 text-base text-gray-300">
+              Monitor the data stream and see what is happening in real time.
+            </p>
+          </div>
+
+          <div v-if="!isPaused" class="flex items-center">
+            <span class="sr-only">Pause stream</span>
+            <PauseIcon @click="isPaused = !isPaused"
+                       class="w-12 h-12 text-white rounded-full bg-gray-800 border-white/20 border hover:bg-rose-600 cursor-pointer p-2"/>
+          </div>
+
+          <div v-else>
+            <span class="sr-only">Resume stream</span>
+            <PlayIcon @click="isPaused = !isPaused"
+                       class="w-12 h-12 text-white rounded-full bg-gray-800 border-white/20 border hover:bg-emerald-600 cursor-pointer p-2 pl-3"/>
+          </div>
         </div>
 
         <div class="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
@@ -199,11 +215,33 @@
               </div>
             </div>
 
-            <div @mousedown.prevent v-show="currentTab === 'Stream'" class="flow-root pt-6">
+            <div v-if="isPaused || pausedEvents.length" class="flex items-center gap-x-6 bg-yellow-600 mt-4 rounded-lg px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+              <p class="text-sm leading-6 text-white">
+                <template v-if="isPaused">
+                  Stream is paused! Press <kbd>Space</kbd> to resume.
+                </template>
+                <template v-if="pausedEvents.length">
+                {{ pausedEvents.length }} events are waiting.
+                </template>
+              </p>
+              <div class="flex flex-1 justify-end">
+                <button @click="isPaused = false" type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
+                  <span class="sr-only">Dismiss</span>
+                  <XMarkIcon class="h-5 w-5 text-white" aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+
+            <div @mousedown.prevent
+                 @mouseenter="hoversTimeline = true"
+                 @mouseleave="hoversTimeline = false"
+                 v-show="currentTab === 'Stream'"
+                 class="flow-root pt-6">
               <ul role="list" class="-mb-8">
-                <li v-for="(event, eventIdx) in timeline" :key="event.id">
-                  <div class="relative pb-8">
-            <span v-if="eventIdx !== timeline.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-white"
+                <li v-for="(event, eventIdx) in timeline" :key="'stream-' + event.id">
+                  <div class="relative pb-8" :class="{ 'pb-32': route.hash === '#' + event.id }">
+            <span v-if="eventIdx !== timeline.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5"
+                  :class="{ 'bg-white': route.hash !== '#' + event.id }"
                   aria-hidden="true"/>
                     <div class="relative flex space-x-3">
                       <div>
@@ -213,9 +251,9 @@
                 <component :is="event.icon" class="h-5 w-5" aria-hidden="true"/>
               </span>
                       </div>
-                      <div class="flex min-w-0 flex-1 justify-between space-x-4">
-                        <div @click="save(event)" class="cursor-pointer">
-                          <p class="text-white">
+                      <div :id="event.id" @click="shake($event)" class="flex min-w-0 flex-1 justify-between space-x-4 group cursor-pointer">
+                        <div @click="save(event)">
+                          <p class="text-white group-hover:text-rose-600">
                             {{ event.domain }}
                           </p>
                           <p class="text-sm text-gray-400">
@@ -234,7 +272,7 @@
 
             <div v-show="currentTab === 'Saved'" class="flow-root pt-6">
               <ul role="list" class="-mb-8">
-                <li v-for="(event, eventIdx) in savedEvents" :key="event.id">
+                <li v-for="(event, eventIdx) in savedEvents" :key="'save-' + event.id">
                   <div class="relative pb-8">
             <span v-if="eventIdx !== savedEvents.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-white"
                   aria-hidden="true"/>
@@ -257,7 +295,8 @@
                         </div>
                         <div class="whitespace-nowrap text-right text-sm text-gray-500 flex items-center">
                           <time :datetime="event.datetime">{{ event.time }}</time>
-                          <TrashIcon class="w-5 h-5 cursor-pointer text-rose-600 hover:text-rose-500" @click="remove(event)" />
+                          <TrashIcon class="w-5 h-5 cursor-pointer text-rose-600 hover:text-rose-500"
+                                     @click="remove(event)"/>
                         </div>
                       </div>
                     </div>
@@ -302,7 +341,9 @@ import {
   WrenchIcon,
   CalendarIcon,
   CircleStackIcon,
-    TrashIcon
+  TrashIcon,
+  PauseIcon,
+  PlayIcon,
 } from '@heroicons/vue/24/outline'
 import {ref} from 'vue'
 import {
@@ -316,6 +357,8 @@ import {
 } from '@headlessui/vue'
 import {XMarkIcon} from '@heroicons/vue/24/outline'
 import {ChevronDownIcon, PlusIcon} from '@heroicons/vue/20/solid'
+
+const route = useRoute();
 
 const title = 'Monitor | Cerast Intelligence';
 useHead({
@@ -368,6 +411,13 @@ onMounted(() => {
   if (apiKeyFromLocalStorage) {
     apiKey.value = apiKeyFromLocalStorage
     start()
+  }
+
+  document.body.onkeydown = (e) => {
+    if ((e.key === " " || e.code === "Space") && hoversTimeline.value) {
+      e.preventDefault()
+      isPaused.value = !isPaused.value
+    }
   }
 })
 
@@ -453,7 +503,10 @@ const start = () => {
   ws.onerror = (error) => {
     isConnected.value = false;
     isConnecting.value = false;
-    const index = notifications.value.push({message: 'An error occurred while connecting to the data stream.', type: 'error'})
+    const index = notifications.value.push({
+      message: 'An error occurred while connecting to the data stream.',
+      type: 'error'
+    })
     setTimeout(() => {
       notifications.value.splice(index - 1, 1)
     }, 5000)
@@ -464,7 +517,7 @@ const start = () => {
     if (message === 'EXPIRED') {
       notifications.value.push({message: 'The API key is expired.', type: 'warning'})
       isConnected.value = false;
-    }else if(message === 'INVALID TOKEN') {
+    } else if (message === 'INVALID TOKEN') {
       notifications.value.push({message: 'The API key is invalid.', type: 'warning'})
       isConnected.value = false;
     } else if (message === 'SUCCESS WS') {
@@ -476,7 +529,7 @@ const start = () => {
       localStorage.setItem('apiKey', apiKey.value)
       isConnected.value = true;
       events.value.unshift({
-        id: events.value.length + 1,
+        id: 1,
         domain: "The data stream has started",
         path: null,
         category: 'start',
@@ -493,8 +546,8 @@ const start = () => {
         title: '(' + events.value.length + ') ' + title,
       })
 
-      events.value.unshift({
-        id: events.value.length + 1,
+      let item = {
+        id: messageJson.uuid,
         domain: messageJson.domain,
         path: messageJson.path,
         category: messageJson.category,
@@ -504,7 +557,13 @@ const start = () => {
         iconBackground: categories[messageJson.category].color,
         showLink: categories[messageJson.category].showLink,
         impact: messageJson.impact,
-      })
+      };
+
+      if(isPaused.value) {
+        pausedEvents.value.unshift(item)
+      }else {
+        events.value.unshift(item)
+      }
     }
 
     isConnecting.value = false;
@@ -518,7 +577,7 @@ const save = (event) => {
 
 const remove = (event) => {
   const index = savedEvents.value.indexOf(event)
-  if(index !== -1) {
+  if (index !== -1) {
     savedEvents.value.splice(index, 1)
   }
 }
@@ -546,5 +605,31 @@ const timeline = computed(() => {
 
     return Object.values(sectionSatisfactions).every(results => results.includes(true));
   });
+})
+
+const pausedEvents = ref([])
+
+const shake = (event) => {
+  const element = event.currentTarget
+  shakeElement(element)
+}
+
+const shakeElement = (element, shakeTime = 750) => {
+  element.classList.add('shake')
+  setTimeout(() => {
+    element.classList.remove('shake')
+  }, shakeTime)
+}
+
+const isPaused = ref(false)
+const hoversTimeline = ref(false)
+
+watch(isPaused, (value) => {
+  if (value) return;
+
+  const lastItem = events.value[0]
+  events.value = pausedEvents.value.concat(events.value)
+  pausedEvents.value = []
+  location.hash = lastItem.id
 })
 </script>
