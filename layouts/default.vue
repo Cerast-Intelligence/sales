@@ -122,6 +122,11 @@ import {Bars3Icon, XMarkIcon} from "@heroicons/vue/24/outline/index.js";
 import {Dialog, DialogPanel} from "@headlessui/vue";
 import {defineComponent, h, ref} from "vue";
 
+const router = useRouter()
+router.afterEach(() => {
+  mobileMenuOpen.value = false
+})
+
 useHead({
   htmlAttrs: {
     lang: 'en',
@@ -129,11 +134,6 @@ useHead({
 })
 
 const mobileMenuOpen = ref(false)
-
-const router = useRouter()
-router.afterEach(() => {
-  mobileMenuOpen.value = false
-})
 
 const navigation = [
   {name: 'Pricing', href: '/#subscribe'},

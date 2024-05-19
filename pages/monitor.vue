@@ -150,7 +150,7 @@
           <div v-else>
             <span class="sr-only">Resume stream</span>
             <PlayIcon @click="isPaused = !isPaused"
-                       class="w-12 h-12 text-white rounded-full bg-gray-800 border-white/20 border hover:bg-emerald-600 cursor-pointer p-2 pl-3"/>
+                      class="w-12 h-12 text-white rounded-full bg-gray-800 border-white/20 border hover:bg-emerald-600 cursor-pointer p-2 pl-3"/>
           </div>
         </div>
 
@@ -167,6 +167,33 @@
               <form class="space-y-10 divide-y divide-gray-200">
                 <p class="text-gray-400">Showing <span class="text-gray-200">{{ timeline.length }}</span> of <span
                     class="text-gray-200">{{ events.length }}</span></p>
+
+                <div class="pt-10">
+                  <label for="search" class="sr-only">Search</label>
+                  <div class="relative">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                      <MagnifyingGlassIcon class="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                    </div>
+                    <input v-model="search" id="search" name="search"
+                           class="block w-full rounded-md border-0 bg-gray-700 py-1.5 pl-10 pr-3 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                           placeholder="Search" type="search"/>
+                  </div>
+
+
+                  <SwitchGroup as="div" class="flex items-center mt-4">
+                    <Switch v-model="regexEnabled"
+                            :class="[regexEnabled ? 'bg-emerald-600' : 'bg-gray-700', 'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:ring-offset-2 focus:ring-offset-gray-700']">
+                      <span aria-hidden="true"
+                            :class="[regexEnabled ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-gray-100 shadow ring-0 transition duration-200 ease-in-out']"/>
+                    </Switch>
+                    <SwitchLabel as="span" class="ml-3 text-sm">
+                      <span class="font-medium text-gray-500">Use regex in search</span>
+                    </SwitchLabel>
+                  </SwitchGroup>
+
+
+                </div>
+
                 <div v-for="(section, sectionIdx) in filters" :key="section.name" class="pt-10">
                   <fieldset>
                     <legend class="block text-sm font-medium text-white">{{ section.name }}</legend>
@@ -215,19 +242,20 @@
               </div>
             </div>
 
-            <div v-if="isPaused || pausedEvents.length" class="flex items-center gap-x-6 bg-yellow-600 mt-4 rounded-lg px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+            <div v-if="isPaused || pausedEvents.length"
+                 class="flex items-center gap-x-6 bg-yellow-600 mt-4 rounded-lg px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
               <p class="text-sm leading-6 text-white">
                 <template v-if="isPaused">
                   Stream is paused! Press <kbd>Space</kbd> to resume.
                 </template>
                 <template v-if="pausedEvents.length">
-                {{ pausedEvents.length }} events are waiting.
+                  {{ pausedEvents.length }} events are waiting.
                 </template>
               </p>
               <div class="flex flex-1 justify-end">
                 <button @click="isPaused = false" type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]">
                   <span class="sr-only">Dismiss</span>
-                  <XMarkIcon class="h-5 w-5 text-white" aria-hidden="true" />
+                  <XMarkIcon class="h-5 w-5 text-white" aria-hidden="true"/>
                 </button>
               </div>
             </div>
@@ -248,10 +276,11 @@
               <span
                   class="h-8 w-8 rounded-full flex items-center justify-center ring-2 bg-gray-800"
                   :class="{'ring-blue-700 text-blue-700': event.impact === 'LOW','ring-yellow-700 text-yellow-700': event.impact === 'MEDIUM','ring-rose-800 text-rose-800': event.impact === 'HIGH'}">
-                <component :is="event.icon" class="h-5 w-5" aria-hidden="true"/>
+                <component :is="categories[event.category].icon" class="h-5 w-5" aria-hidden="true"/>
               </span>
                       </div>
-                      <div :id="event.id" @click="shake($event)" class="flex min-w-0 flex-1 justify-between space-x-4 group cursor-pointer">
+                      <div :id="event.id" @click="shake($event)"
+                           class="flex min-w-0 flex-1 justify-between space-x-4 group cursor-pointer">
                         <div @click="save(event)">
                           <p class="text-white group-hover:text-rose-600">
                             {{ event.domain }}
@@ -271,24 +300,56 @@
             </div>
 
             <div v-show="currentTab === 'Saved'" class="flow-root pt-6">
-              <ul role="list" class="-mb-8">
-                <li v-for="(event, eventIdx) in savedEvents" :key="'save-' + event.id">
+              <div class="flex justify-between">
+                <form @submit.prevent="importSaved" class="flex space-x-2">
+                  <label for="importCode" class="sr-only">Search</label>
+                  <div class="relative">
+                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                      <HashtagIcon class="h-5 w-5 text-gray-400" aria-hidden="true"/>
+                    </div>
+                    <input v-model="importCode" id="importCode" name="importCode"
+                           class="block w-full rounded-md border-0 bg-gray-700 py-1.5 pl-10 pr-3 text-white placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                           placeholder="Import Code" type="text"/>
+                  </div>
+                  <button
+                      @click="importSaved"
+                      type="button"
+                      class="rounded-md bg-gray-700 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-600">
+                    Import
+                  </button>
+                </form>
+                <button
+                    @click="exportSaved"
+                    type="button"
+                    class="rounded-md bg-gray-700 px-2 py-1 text-sm text-gray-100 font-semibold shadow-sm hover:bg-gray-600 flex items-center justify-center">
+                  Export
+                  <ArrowUpOnSquareIcon class="h-5 w-5 ml-2" aria-hidden="true"/>
+                </button>
+              </div>
+
+              <ul role="list" class="-mb-8 mt-8">
+                <li v-for="(event, eventIdx) in savedTimeline" :key="'save-' + event.id">
                   <div class="relative pb-8">
-            <span v-if="eventIdx !== savedEvents.length - 1" class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-white"
+            <span v-if="eventIdx !== savedTimeline.length - 1"
+                  class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-white"
                   aria-hidden="true"/>
                     <div class="relative flex space-x-3">
                       <div>
               <span
                   class="h-8 w-8 rounded-full flex items-center justify-center ring-2 bg-gray-800"
                   :class="{'ring-blue-700 text-blue-700': event.impact === 'LOW','ring-yellow-700 text-yellow-700': event.impact === 'MEDIUM','ring-rose-800 text-rose-800': event.impact === 'HIGH'}">
-                <component :is="event.icon" class="h-5 w-5" aria-hidden="true"/>
+                <component :is="categories[event.category].icon" class="h-5 w-5" aria-hidden="true"/>
               </span>
                       </div>
                       <div class="flex min-w-0 flex-1 justify-between space-x-4">
                         <div>
-                          <p class="text-white">
-                            {{ event.domain }}
-                          </p>
+                          <div class="flex">
+                            <p class="text-gray-100">{{ event.domain }}</p>
+                            <a v-if="event.showLink" :href="'https://' + event.domain + event.path" target="_blank">
+                              <ArrowTopRightOnSquareIcon
+                                  class="w-5 h-5 hover:text-blue-400 text-blue-600 ml-4 cursor-pointer"/>
+                            </a>
+                          </div>
                           <p class="text-sm text-gray-400">
                             {{ event.path }}
                           </p>
@@ -344,6 +405,11 @@ import {
   TrashIcon,
   PauseIcon,
   PlayIcon,
+  MagnifyingGlassIcon,
+  ArrowTopRightOnSquareIcon,
+  ArrowUpOnSquareIcon,
+  ArrowDownOnSquareIcon,
+  HashtagIcon
 } from '@heroicons/vue/24/outline'
 import {ref} from 'vue'
 import {
@@ -357,12 +423,30 @@ import {
 } from '@headlessui/vue'
 import {XMarkIcon} from '@heroicons/vue/24/outline'
 import {ChevronDownIcon, PlusIcon} from '@heroicons/vue/20/solid'
+import {Switch, SwitchGroup, SwitchLabel} from '@headlessui/vue'
+
+
+const regexEnabled = ref(true)
+
+onMounted(() => {
+  const apiKeyFromLocalStorage = localStorage.getItem('apiKey')
+  if (apiKeyFromLocalStorage) {
+    apiKey.value = apiKeyFromLocalStorage
+    start()
+  }
+
+  document.body.onkeydown = (e) => {
+    if ((e.key === " " || e.code === "Space") && hoversTimeline.value) {
+      e.preventDefault()
+      isPaused.value = !isPaused.value
+    }
+  }
+})
 
 const route = useRoute();
 
-const title = 'Monitor | Cerast Intelligence';
 useHead({
-  title,
+  title: 'Monitor | Cerast Intelligence',
   meta: [
     {
       name: 'description',
@@ -397,100 +481,7 @@ const filters = [
   }
 ]
 
-const toggleFilter = (sectionId, optionValue) => {
-  const index = activeFilters.value.findIndex((filter) => filter.sectionId === sectionId && filter.optionValue === optionValue)
-  if (index === -1) {
-    activeFilters.value.push({sectionId, optionValue})
-  } else {
-    activeFilters.value.splice(index, 1)
-  }
-}
-
-onMounted(() => {
-  const apiKeyFromLocalStorage = localStorage.getItem('apiKey')
-  if (apiKeyFromLocalStorage) {
-    apiKey.value = apiKeyFromLocalStorage
-    start()
-  }
-
-  document.body.onkeydown = (e) => {
-    if ((e.key === " " || e.code === "Space") && hoversTimeline.value) {
-      e.preventDefault()
-      isPaused.value = !isPaused.value
-    }
-  }
-})
-
-onBeforeUnmount(() => {
-  if (ws) {
-    ws.close()
-  }
-})
-
-const activeFilters = ref([])
-
-const mobileFiltersOpen = ref(false)
-
-const apiKey = ref("")
-const isConnected = ref(false)
-const isConnecting = ref(false)
-const notifications = ref([])
-const closeNotification = (id) => {
-  notifications.value.splice(id, 1)
-}
-
-const removeKeyFromLocalStorage = () => {
-  localStorage.removeItem('apiKey')
-  apiKey.value = ""
-}
-
-let ws = null;
-
-const categories = {
-  'start': {
-    label: "The data stream has started",
-    icon: CogIcon,
-    showLink: false,
-  },
-  'config': {
-    label: "Config File",
-    icon: CogIcon,
-    showLink: true,
-  },
-  'source_code': {
-    label: "Source Code",
-    icon: ServerIcon,
-    showLink: true,
-  },
-  'wordpress': {
-    label: "Wordpress",
-    icon: WrenchIcon,
-    showLink: true,
-  },
-  'outdated': {
-    label: "Outdated",
-    icon: CalendarIcon,
-    showLink: false,
-  },
-  'credentials': {
-    label: "Credentials",
-    icon: FingerPrintIcon,
-    showLink: false,
-  },
-  'database': {
-    label: "Database Backup",
-    icon: CircleStackIcon,
-    showLink: true,
-  },
-}
-
-const events = ref([])
-const savedEvents = ref([])
-
-const stop = () => {
-  ws.close()
-  isConnected.value = false;
-}
+const search = ref('')
 
 const start = () => {
   isConnecting.value = true;
@@ -535,16 +526,11 @@ const start = () => {
         category: 'start',
         time: new Date().toLocaleTimeString(),
         datetime: new Date().toISOString(),
-        icon: categories['start'].icon,
         iconBackground: categories['start'].color,
         showLink: categories['start'].showLink,
       })
     } else {
       const messageJson = JSON.parse(message)
-
-      useHead({
-        title: '(' + events.value.length + ') ' + title,
-      })
 
       let item = {
         id: messageJson.uuid,
@@ -553,21 +539,94 @@ const start = () => {
         category: messageJson.category,
         time: new Date().toLocaleTimeString(),
         datetime: new Date().toISOString(),
-        icon: categories[messageJson.category].icon,
         iconBackground: categories[messageJson.category].color,
         showLink: categories[messageJson.category].showLink,
         impact: messageJson.impact,
       };
 
-      if(isPaused.value) {
+      if (isPaused.value) {
         pausedEvents.value.unshift(item)
-      }else {
+      } else {
         events.value.unshift(item)
       }
     }
 
     isConnecting.value = false;
   }
+}
+
+const toggleFilter = (sectionId, optionValue) => {
+  const index = activeFilters.value.findIndex((filter) => filter.sectionId === sectionId && filter.optionValue === optionValue)
+  if (index === -1) {
+    activeFilters.value.push({sectionId, optionValue})
+  } else {
+    activeFilters.value.splice(index, 1)
+  }
+}
+
+const activeFilters = ref([])
+
+const mobileFiltersOpen = ref(false)
+
+const apiKey = ref("")
+const isConnected = ref(false)
+const isConnecting = ref(false)
+const notifications = ref([])
+const closeNotification = (id) => {
+  notifications.value.splice(id, 1)
+}
+
+const removeKeyFromLocalStorage = () => {
+  localStorage.removeItem('apiKey')
+  apiKey.value = ""
+}
+
+let ws = null;
+
+const categories = {
+  'start': {
+    label: "The data stream has started",
+    icon: CogIcon,
+    showLink: false,
+  },
+  'config': {
+    label: "Config File",
+    icon: CogIcon,
+    showLink: true,
+  },
+  'source_code': {
+    label: "Source Code",
+    icon: CogIcon,
+    showLink: true,
+  },
+  'wordpress': {
+    label: "Wordpress",
+    icon: WrenchIcon,
+    showLink: true,
+  },
+  'outdated': {
+    label: "Outdated",
+    icon: CalendarIcon,
+    showLink: false,
+  },
+  'credentials': {
+    label: "Credentials",
+    icon: FingerPrintIcon,
+    showLink: false,
+  },
+  'database': {
+    label: "Database Backup",
+    icon: CircleStackIcon,
+    showLink: true,
+  },
+}
+
+const events = ref([])
+const savedEvents = ref([])
+
+const stop = () => {
+  ws.close()
+  isConnected.value = false;
 }
 
 const save = (event) => {
@@ -584,24 +643,50 @@ const remove = (event) => {
 
 
 const timeline = computed(() => {
-  if (activeFilters.value.length === 0) {
+  if (activeFilters.value.length === 0 && search.value.length === 0) {
     return events.value;
   }
 
   return events.value.filter(event => {
     const sectionSatisfactions = {};
 
+    sectionSatisfactions['search'] = [];
+    const regex = new RegExp(search.value, 'ig');
+    sectionSatisfactions['search'].push(!(search.value.length && (!regexEnabled.value && !event.domain.includes(search.value)) || (regexEnabled.value && !regex.test(event.domain))));
+
     for (const filter of activeFilters.value) {
       if (!sectionSatisfactions[filter.sectionId]) {
         sectionSatisfactions[filter.sectionId] = [];
       }
 
-      if (event[filter.sectionId] === filter.optionValue) {
-        sectionSatisfactions[filter.sectionId].push(true);
-      } else {
-        sectionSatisfactions[filter.sectionId].push(false);
-      }
+      sectionSatisfactions[filter.sectionId].push(event[filter.sectionId] === filter.optionValue);
     }
+
+
+    return Object.values(sectionSatisfactions).every(results => results.includes(true));
+  });
+})
+
+const savedTimeline = computed(() => {
+  if (activeFilters.value.length === 0 && search.value.length === 0) {
+    return savedEvents.value;
+  }
+
+  return savedEvents.value.filter(event => {
+    const sectionSatisfactions = {};
+
+    sectionSatisfactions['search'] = [];
+    const regex = new RegExp(search.value, 'ig');
+    sectionSatisfactions['search'].push(!(search.value.length && (!regexEnabled.value && !event.domain.includes(search.value)) || (regexEnabled.value && !regex.test(event.domain))));
+
+    for (const filter of activeFilters.value) {
+      if (!sectionSatisfactions[filter.sectionId]) {
+        sectionSatisfactions[filter.sectionId] = [];
+      }
+
+      sectionSatisfactions[filter.sectionId].push(event[filter.sectionId] === filter.optionValue);
+    }
+
 
     return Object.values(sectionSatisfactions).every(results => results.includes(true));
   });
@@ -616,6 +701,7 @@ const shake = (event) => {
 
 const shakeElement = (element, shakeTime = 750) => {
   element.classList.add('shake')
+
   setTimeout(() => {
     element.classList.remove('shake')
   }, shakeTime)
@@ -623,6 +709,7 @@ const shakeElement = (element, shakeTime = 750) => {
 
 const isPaused = ref(false)
 const hoversTimeline = ref(false)
+const importCode = ref('')
 
 watch(isPaused, (value) => {
   if (value) return;
@@ -632,4 +719,38 @@ watch(isPaused, (value) => {
   pausedEvents.value = []
   location.hash = lastItem.id
 })
+
+const importSaved = async () => {
+  fetch('https://api.pastes.dev/' + importCode.value)
+      .then(response => response.json())
+      .then(data => {
+        savedEvents.value = data
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+}
+
+const exportSaved = async () => {
+  fetch('https://api.pastes.dev/post', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/json',
+    },
+    body: JSON.stringify(savedEvents.value),
+  })
+      .then(response => response.json())
+      .then(data => {
+        notifications.value.push({
+          message: 'Use the following code to import your saved events: ' + data.key,
+          type: 'success'
+        })
+      })
+      .catch((error) => {
+        notifications.value.push({
+          message: 'An error occurred while exporting the saved events.',
+          type: 'error'
+        })
+      })
+}
 </script>
