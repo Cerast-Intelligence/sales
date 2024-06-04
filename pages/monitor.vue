@@ -402,6 +402,7 @@ import {
   WrenchIcon,
   CalendarIcon,
   CircleStackIcon,
+  FolderIcon,
   TrashIcon,
   PauseIcon,
   PlayIcon,
@@ -468,6 +469,7 @@ const filters = [
       {value: 'outdated', label: 'Outdated Software'},
       {value: 'credentials', label: 'Credentials'},
       {value: 'database', label: 'Database'},
+      {value: 'exposed', label: 'Exposed'},
     ],
   },
   {
@@ -617,6 +619,11 @@ const categories = {
   'database': {
     label: "Database Backup",
     icon: CircleStackIcon,
+    showLink: true,
+  },
+  'exposed': {
+    label: "Exposed Files",
+    icon: FolderIcon,
     showLink: true,
   },
 }
