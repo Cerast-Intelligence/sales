@@ -282,9 +282,14 @@
                       <div :id="event.id" @click="shake($event)"
                            class="flex min-w-0 flex-1 justify-between space-x-4 group cursor-pointer">
                         <div @click="save(event)">
-                          <p class="text-white group-hover:text-rose-600">
+                          <div class="text-rose-600">
+                            
+                            <span class="text-white group-hover:text-rose-600">
                             {{ event.domain }}
-                          </p>
+                            </span>
+                            {{ categories[event.category].label }} 
+                          </div>
+                         
                           <p class="text-sm text-gray-400">
                             {{ event.path }}
                           </p>
@@ -469,7 +474,7 @@ const filters = [
       {value: 'outdated', label: 'Outdated Software'},
       {value: 'credentials', label: 'Credentials'},
       {value: 'database', label: 'Database'},
-      {value: 'exposed', label: 'Exposed'},
+      {value: 'exposed', label: 'Exposed Files'},
     ],
   },
   {
@@ -602,17 +607,17 @@ const categories = {
     showLink: true,
   },
   'wordpress': {
-    label: "Wordpress",
+    label: "Misconfigured Wordpress",
     icon: WrenchIcon,
     showLink: true,
   },
   'outdated': {
-    label: "Outdated",
+    label: "Outdated Software",
     icon: CalendarIcon,
     showLink: false,
   },
   'credentials': {
-    label: "Credentials",
+    label: "Credentials leaked",
     icon: FingerPrintIcon,
     showLink: false,
   },
