@@ -34,8 +34,8 @@
             </span>
           </NuxtLink>
         </div>
-        <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Bug Bounty on a Sushi Belt - Fast & Fresh 24/7</h1>
-        <p class="mt-6 mr-20 text-lg leading-8 text-gray-300">Sit back and watch as the easiest bug bounties roll directly to you on a virtual sushi belt, each one pre-verified and ready for the taking. Simply claim your bounty or dive deeper to uncover more vulnerabilities. </p>
+        <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">Vulnerabilities on a Sushi Belt - Fast & Fresh 24/7</h1>
+        <p class="mt-6 mr-20 text-lg leading-8 text-gray-300">Sit back and watch as the easy vulnerabilities roll directly to you on a virtual sushi belt, each one pre-verified and ready for the taking. Simply claim your bug bounty or dive deeper to uncover more vulnerabilities. </p>
         <div class="mt-10 flex items-center gap-x-6">
           <NuxtLink to="#subscribe"
                     class="rounded-md bg-rose-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400">
