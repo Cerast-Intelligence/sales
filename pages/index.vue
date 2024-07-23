@@ -330,14 +330,14 @@ useHead({
 
 const faqs = [
 {
-    question: "Are there student, NGO... discounts?",
+    question: "Are there discounts for students, NGOs, etc.?",
     answer:
         "If you are a student, teacher, social worker, or non-profit organization employee, you may qualify for a discount on our service. Contact us!",
   },
   {
     question: "Why should I buy your product?",
     answer:
-        'We give you easy bug bounty targets which are pre verified. The return of investment is therefore high.',
+        'We give you easy bug bounty targets which are pre-verified. The return of investment is therefore high.',
   },
   {
     question: "Whats the catch?",
@@ -347,12 +347,12 @@ const faqs = [
   {
     question: "Is the service legal?",
     answer:
-        "Yes! We provide data which is somewhat publicly available. We're just aggregating,filtering and analyzing it to provide it in a easy way for you!",
+        "Yes! We provide data that is somewhat publicly available. We aggregate, filter, and analyze it to present it in an easy-to-use format for you!",
   },
   {
     question: "Can I use the data for commercial purposes?",
     answer:
-        "Yes, you can use the data for commercial purposes. The only restriction is that you can not resell the data directly.",
+        "Yes, you can use the data for commercial purposes. The only restriction is that you cannot resell the data directly.",
   },
   {
     question: "I need API access",
@@ -363,7 +363,7 @@ const faqs = [
   {
     question: "If I buy 6 months, how does the discount code work?",
     answer:
-        'The discount code applies to "each payment period". This means if you have 50% off you get a discount of ~$100 because it applies to the whole 6 month',
+        'The discount code applies to each payment period. For example, if you have a 50% discount, you save approximately $100 for the entire 6-month period.',
   },
   {
     question: "Can I cancel my subscription?",
